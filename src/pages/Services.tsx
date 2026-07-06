@@ -47,11 +47,13 @@ const Services = () => {
       {/* ── Services Grid ─────────────────────────────────── */}
       <section className="py-20 bg-[#f8fafb]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14">
+          <motion.div className="text-center mb-14"
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Our Expertise</p>
             <h2 className="text-3xl font-display font-bold text-navy-900 mb-3">9 Specialized Practice Areas</h2>
             <p className="text-gray-500 max-w-xl mx-auto text-sm">Every service is designed to give your organization complete legal protection and operational efficiency.</p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {services.map((service, i) => (
               <motion.div key={service.slug}

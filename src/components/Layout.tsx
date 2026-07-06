@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, Menu, X, ChevronDown, ArrowUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const LogoMark = () => (
   <svg width="30" height="32" viewBox="0 0 30 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -185,45 +186,55 @@ const Layout = () => {
         </div>
 
         {/* Mobile Nav */}
-        {isMenuOpen && (
-          <div className="lg:hidden absolute top-[72px] left-0 w-full bg-white shadow-xl border-t border-gray-100 z-50 max-h-[80vh] overflow-y-auto">
-            {navLinks.map((link) => (
-              <div key={link.name}>
-                <Link
-                  to={link.path}
-                  className={`block px-6 py-4 border-b border-gray-50 font-medium text-sm ${isActive(link.path) ? 'text-teal-600 bg-teal-50' : 'text-gray-700'}`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.name}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22 }}
+              className="lg:hidden absolute top-[72px] left-0 w-full bg-white shadow-xl border-t border-gray-100 z-50 max-h-[80vh] overflow-y-auto">
+              {navLinks.map((link, i) => (
+                <motion.div key={link.name}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04 }}>
+                  <Link
+                    to={link.path}
+                    className={`block px-6 py-4 border-b border-gray-50 font-medium text-sm ${isActive(link.path) ? 'text-teal-600 bg-teal-50' : 'text-gray-700'}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                  {link.hasDropdown && (
+                    <div className="bg-gray-50">
+                      {serviceLinks.map((s) => (
+                        <Link key={s.slug} to={`/services/${s.slug}`}
+                          className="block pl-10 pr-6 py-3 border-b border-gray-100 text-xs font-medium text-gray-600 hover:text-teal-600 transition-colors"
+                          onClick={() => setIsMenuOpen(false)}>
+                          › {s.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+              <div className="p-5 flex flex-col gap-3">
+                <a href="tel:+919876543210" className="flex items-center gap-2 text-sm text-gray-600">
+                  <Phone size={14} className="text-teal-500" /> +91 98765 43210
+                </a>
+                <a href="mailto:contact@labourcodes.in" className="flex items-center gap-2 text-sm text-gray-600">
+                  <Mail size={14} className="text-teal-500" /> contact@labourcodes.in
+                </a>
+                <Link to="/contact"
+                  className="mt-2 block w-full text-center bg-navy-900 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}>
+                  Let's Connect
                 </Link>
-                {link.hasDropdown && (
-                  <div className="bg-gray-50">
-                    {serviceLinks.map((s) => (
-                      <Link key={s.slug} to={`/services/${s.slug}`}
-                        className="block pl-10 pr-6 py-3 border-b border-gray-100 text-xs font-medium text-gray-600 hover:text-teal-600 transition-colors"
-                        onClick={() => setIsMenuOpen(false)}>
-                        › {s.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
               </div>
-            ))}
-            <div className="p-5 flex flex-col gap-3">
-              <a href="tel:+919876543210" className="flex items-center gap-2 text-sm text-gray-600">
-                <Phone size={14} className="text-teal-500" /> +91 98765 43210
-              </a>
-              <a href="mailto:contact@labourcodes.in" className="flex items-center gap-2 text-sm text-gray-600">
-                <Mail size={14} className="text-teal-500" /> contact@labourcodes.in
-              </a>
-              <Link to="/contact"
-                className="mt-2 block w-full text-center bg-navy-900 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors"
-                onClick={() => setIsMenuOpen(false)}>
-                Let's Connect
-              </Link>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Main Content */}
@@ -236,7 +247,8 @@ const Layout = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
-            <div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5 }}>
               <div className="flex items-center gap-3.5 mb-5">
                 <LogoMarkWhite />
                 <div className="flex flex-col leading-none">
@@ -261,9 +273,10 @@ const Layout = () => {
                   <IconTwitter />
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}>
               <h3 className="font-bold text-sm mb-6 text-white uppercase tracking-wider">Our Services</h3>
               <ul className="space-y-3">
                 {serviceLinks.slice(0, 5).map((s) => (
@@ -276,9 +289,10 @@ const Layout = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
               <h3 className="font-bold text-sm mb-6 text-white uppercase tracking-wider">Contact Us</h3>
               <ul className="space-y-4">
                 <li className="flex gap-3 text-white/55 text-sm">
@@ -299,9 +313,10 @@ const Layout = () => {
                   </div>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}>
               <h3 className="font-bold text-sm mb-6 text-white uppercase tracking-wider">Newsletter</h3>
               <p className="text-white/55 text-sm mb-4 leading-relaxed">Subscribe for critical compliance alerts and regulatory updates.</p>
               <form className="flex flex-col gap-2.5" onSubmit={(e) => e.preventDefault()}>
@@ -315,7 +330,7 @@ const Layout = () => {
                   Subscribe Now
                 </button>
               </form>
-            </div>
+            </motion.div>
           </div>
 
           <div className="pt-8 border-t border-white/10 text-white/35 text-xs flex flex-col md:flex-row justify-between items-center gap-4">

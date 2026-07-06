@@ -36,7 +36,9 @@ const About = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="flex flex-col lg:flex-row gap-14 items-center">
-            <div className="lg:w-5/12">
+            <motion.div className="lg:w-5/12"
+              initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <div className="relative">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                   <img src="/assets/service-staffing.png" alt="Our Team" className="w-full h-full object-cover" />
@@ -50,8 +52,10 @@ const About = () => {
                   <div className="text-xs font-semibold text-white/60 uppercase tracking-wider">Corporate Clients</div>
                 </div>
               </div>
-            </div>
-            <div className="lg:w-7/12">
+            </motion.div>
+            <motion.div className="lg:w-7/12"
+              initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
               <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-4">Our Story</p>
               <h2 className="text-3xl font-display font-bold text-navy-900 mb-6 leading-snug">
                 Founded on a Vision of Simplified Compliance
@@ -71,7 +75,7 @@ const About = () => {
                 className="inline-flex items-center gap-2 mt-9 bg-navy-900 text-white px-7 py-3 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors shadow-md">
                 Start a Conversation <ArrowRight size={15} />
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
