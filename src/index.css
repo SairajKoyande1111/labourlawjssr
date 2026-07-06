@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -8,8 +9,8 @@
   --color-teal-600: #00A88A;
   --color-teal-700: #008C73;
   --color-teal-400: #33CFB2;
-  --color-mint-50: #e8f5f3;
-  --color-mint-100: #d0ede8;
+  --color-mint-50: #f0faf8;
+  --color-mint-100: #d9f0eb;
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Playfair Display', serif;
 }
@@ -18,11 +19,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   color: #1f2937;
-  background-color: #e8f5f3;
+  background-color: #ffffff;
 }
 
 #root {

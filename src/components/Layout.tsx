@@ -1,37 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, Menu, X, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, MessageCircle, ChevronDown } from 'lucide-react';
+
+const IconFacebook = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+);
+const IconLinkedin = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+    <circle cx="4" cy="4" r="2"/>
+  </svg>
+);
+const IconTwitter = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+  </svg>
+);
 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setServicesOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
+    { name: 'Services', path: '/services', hasDropdown: true },
     { name: 'Clientele', path: '/clientele' },
     { name: 'Resources', path: '/resources' },
     { name: 'Careers', path: '/careers' },
     { name: 'Contact Us', path: '/contact' },
   ];
 
+  const serviceLinks = [
+    { name: 'Labour Law Compliance', slug: 'labour-law-compliance' },
+    { name: 'Payroll & Salary Structuring', slug: 'payroll-structuring' },
+    { name: 'Statutory Filings', slug: 'statutory-filings' },
+    { name: 'Contract Staffing', slug: 'contract-staffing' },
+    { name: 'Audits & Governance', slug: 'audits-governance' },
+    { name: 'Registrations & Licensing', slug: 'registrations-licensing' },
+    { name: 'HR Policy & Advisory', slug: 'hr-policy-advisory' },
+    { name: 'Legal Representation', slug: 'litigation-support' },
+    { name: 'Training & Workshops', slug: 'training-workshops' },
+  ];
+
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
 
-      {/* Top Teal Bar */}
-      <div className="bg-gradient-to-r from-teal-600 to-teal-500 text-white py-2">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 flex justify-between items-center">
+      {/* Top Bar */}
+      <div className="bg-teal-500 text-white py-2.5 hidden md:block">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <a href="#" aria-label="Facebook" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors flex items-center justify-center text-xs font-bold">f</a>
-            <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors flex items-center justify-center text-xs font-bold">in</a>
-            <a href="#" aria-label="Twitter" className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 transition-colors flex items-center justify-center text-xs font-bold">tw</a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"
+              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 transition-colors flex items-center justify-center">
+              <IconFacebook />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"
+              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 transition-colors flex items-center justify-center">
+              <IconLinkedin />
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter"
+              className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/40 transition-colors flex items-center justify-center">
+              <IconTwitter />
+            </a>
           </div>
-          <div className="hidden sm:flex items-center gap-5 text-sm">
+          <div className="flex items-center gap-6 text-sm font-medium">
             <a href="mailto:contact@labourcodes.in" className="flex items-center gap-1.5 hover:text-white/80 transition-colors">
               <Mail size={13} /> contact@labourcodes.in
             </a>
-            <span className="text-white/40">|</span>
+            <span className="text-white/30">|</span>
             <a href="tel:+919876543210" className="flex items-center gap-1.5 hover:text-white/80 transition-colors">
               <Phone size={13} /> +91 98765 43210
             </a>
@@ -40,60 +95,109 @@ const Layout = () => {
       </div>
 
       {/* Sticky Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-md border-b border-gray-100">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 h-20 flex justify-between items-center">
+      <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'shadow-md'} border-b border-gray-100`}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 h-[72px] flex justify-between items-center">
 
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-1.5 h-14 bg-gradient-to-b from-teal-500 to-teal-700 rounded-full"></div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="font-display font-bold text-2xl text-navy-900 leading-none">Labour Codes</span>
-              </div>
-              <span className="text-[10px] text-gray-400 font-semibold tracking-[0.15em] uppercase mt-1">Labour Laws | Compliance | Staffing</span>
+          <Link to="/" className="flex items-center gap-3 shrink-0">
+            <div className="flex flex-col items-center justify-center w-10 h-10 bg-teal-500 rounded-lg shadow-sm">
+              <span className="text-white font-black text-lg leading-none tracking-tighter">LC</span>
+            </div>
+            <div>
+              <div className="font-display font-bold text-xl text-navy-900 leading-none">Labour Codes</div>
+              <div className="text-[9px] text-gray-400 font-semibold tracking-[0.18em] uppercase mt-0.5">Labour Laws | Compliance | Staffing</div>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`font-medium text-sm transition-colors border-b-2 pb-1 ${
-                  location.pathname === link.path
-                    ? 'border-teal-500 text-teal-600'
-                    : 'border-transparent text-gray-700 hover:text-teal-600 hover:border-teal-300'
-                }`}
-              >
-                {link.name}
-              </Link>
+              link.hasDropdown ? (
+                <div key={link.name} className="relative group">
+                  <Link
+                    to={link.path}
+                    className={`flex items-center gap-1 font-medium text-sm px-4 py-2 rounded-md transition-all ${
+                      isActive(link.path)
+                        ? 'text-teal-600 bg-teal-50'
+                        : 'text-gray-700 hover:text-teal-600 hover:bg-gray-50'
+                    }`}
+                  >
+                    {link.name}
+                    <ChevronDown size={13} className="group-hover:rotate-180 transition-transform duration-200" />
+                  </Link>
+                  <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    {serviceLinks.map((s) => (
+                      <Link key={s.slug} to={`/services/${s.slug}`}
+                        className="block px-5 py-2.5 text-sm text-gray-700 hover:text-teal-600 hover:bg-teal-50 transition-colors font-medium">
+                        {s.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`font-medium text-sm px-4 py-2 rounded-md transition-all ${
+                    isActive(link.path)
+                      ? 'text-teal-600 bg-teal-50'
+                      : 'text-gray-700 hover:text-teal-600 hover:bg-gray-50'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
-            <Link to="/contact" className="bg-navy-900 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors shadow-sm ml-2">
-              Let's Connect
-            </Link>
           </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button className="lg:hidden text-navy-900 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+          <div className="hidden lg:flex items-center gap-3">
+            <Link to="/contact"
+              className="bg-navy-900 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors shadow-sm whitespace-nowrap">
+              Let's Connect
+            </Link>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button className="lg:hidden text-navy-900 p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-20 left-0 w-full bg-white shadow-xl border-t border-gray-100 z-50">
+          <div className="lg:hidden absolute top-[72px] left-0 w-full bg-white shadow-xl border-t border-gray-100 z-50 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`block px-6 py-4 border-b border-gray-100 font-medium text-sm ${location.pathname === link.path ? 'text-teal-600 bg-mint-50' : 'text-gray-700'}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
+              <div key={link.name}>
+                <Link
+                  to={link.path}
+                  className={`block px-6 py-4 border-b border-gray-50 font-medium text-sm ${isActive(link.path) ? 'text-teal-600 bg-teal-50' : 'text-gray-700'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+                {link.hasDropdown && (
+                  <div className="bg-gray-50">
+                    {serviceLinks.map((s) => (
+                      <Link key={s.slug} to={`/services/${s.slug}`}
+                        className="block pl-10 pr-6 py-3 border-b border-gray-100 text-xs font-medium text-gray-600 hover:text-teal-600 transition-colors"
+                        onClick={() => setIsMenuOpen(false)}>
+                        › {s.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
-            <div className="p-4">
-              <Link to="/contact" className="block w-full text-center bg-navy-900 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors" onClick={() => setIsMenuOpen(false)}>
+            <div className="p-5 flex flex-col gap-3">
+              <a href="tel:+919876543210" className="flex items-center gap-2 text-sm text-gray-600">
+                <Phone size={14} className="text-teal-500" /> +91 98765 43210
+              </a>
+              <a href="mailto:contact@labourcodes.in" className="flex items-center gap-2 text-sm text-gray-600">
+                <Mail size={14} className="text-teal-500" /> contact@labourcodes.in
+              </a>
+              <Link to="/contact"
+                className="mt-2 block w-full text-center bg-navy-900 text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors"
+                onClick={() => setIsMenuOpen(false)}>
                 Let's Connect
               </Link>
             </div>
@@ -108,84 +212,112 @@ const Layout = () => {
 
       {/* Footer */}
       <footer className="bg-navy-900 text-white pt-16 pb-8 border-t-4 border-teal-500">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-1.5 h-12 bg-teal-500 rounded-full"></div>
-              <span className="font-display font-bold text-2xl text-white">Labour Codes</span>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="flex flex-col items-center justify-center w-9 h-9 bg-teal-500 rounded-lg">
+                  <span className="text-white font-black text-base leading-none">LC</span>
+                </div>
+                <span className="font-display font-bold text-xl text-white">Labour Codes</span>
+              </div>
+              <p className="text-white/55 mb-6 text-sm leading-relaxed">
+                India's premier professional services firm specializing in New Labour Codes, HR compliance, statutory filings, and staffing solutions.
+              </p>
+              <div className="flex gap-2.5">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer"
+                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition-colors">
+                  <IconFacebook />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noreferrer"
+                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition-colors">
+                  <IconLinkedin />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noreferrer"
+                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition-colors">
+                  <IconTwitter />
+                </a>
+              </div>
             </div>
-            <p className="text-white/60 mb-6 text-sm leading-relaxed">
-              India's premier professional services firm navigating the complexities of New Labour Codes, HR compliance, and staffing solutions.
-            </p>
-            <div className="flex gap-3">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition-colors text-xs font-bold">f</a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition-colors text-xs font-bold">in</a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-teal-500 transition-colors text-xs font-bold">tw</a>
+
+            <div>
+              <h3 className="font-bold text-sm mb-6 text-white uppercase tracking-wider">Our Services</h3>
+              <ul className="space-y-3">
+                {serviceLinks.slice(0, 5).map((s) => (
+                  <li key={s.slug}>
+                    <Link to={`/services/${s.slug}`}
+                      className="text-white/55 hover:text-teal-400 text-sm transition-colors flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0"></span>
+                      {s.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-sm mb-6 text-white uppercase tracking-wider">Contact Us</h3>
+              <ul className="space-y-4">
+                <li className="flex gap-3 text-white/55 text-sm">
+                  <MapPin size={16} className="text-teal-400 shrink-0 mt-0.5" />
+                  <span>15th Floor, Nariman Point, Mumbai, Maharashtra 400021</span>
+                </li>
+                <li className="flex gap-3 text-white/55 text-sm">
+                  <Phone size={15} className="text-teal-400 shrink-0 mt-0.5" />
+                  <div>
+                    <a href="tel:+919876543210" className="block hover:text-teal-400 transition-colors">+91 98765 43210</a>
+                    <a href="tel:02245678900" className="block hover:text-teal-400 transition-colors">022 4567 8900</a>
+                  </div>
+                </li>
+                <li className="flex gap-3 text-white/55 text-sm">
+                  <Mail size={15} className="text-teal-400 shrink-0 mt-0.5" />
+                  <div>
+                    <a href="mailto:contact@labourcodes.in" className="block hover:text-teal-400 transition-colors">contact@labourcodes.in</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-sm mb-6 text-white uppercase tracking-wider">Newsletter</h3>
+              <p className="text-white/55 text-sm mb-4 leading-relaxed">Subscribe for critical compliance alerts and regulatory updates.</p>
+              <form className="flex flex-col gap-2.5" onSubmit={(e) => e.preventDefault()}>
+                <input
+                  type="email"
+                  placeholder="Your Email Address"
+                  className="bg-white/10 border border-white/20 text-white rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 transition-colors placeholder:text-white/35"
+                />
+                <button type="submit"
+                  className="bg-teal-500 text-white px-4 py-2.5 rounded-lg text-sm font-bold hover:bg-teal-600 transition-colors">
+                  Subscribe Now
+                </button>
+              </form>
             </div>
           </div>
 
-          <div>
-            <h3 className="font-bold text-base mb-6 text-white uppercase tracking-wider">Recent Updates</h3>
-            <ul className="space-y-4">
-              <li>
-                <Link to="/resources" className="group block">
-                  <p className="text-xs text-teal-400 mb-1">Oct 15, 2024</p>
-                  <p className="text-white/70 group-hover:text-white text-sm font-medium transition-colors leading-snug">Understanding the New Wage Code Implications</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="/resources" className="group block">
-                  <p className="text-xs text-teal-400 mb-1">Oct 02, 2024</p>
-                  <p className="text-white/70 group-hover:text-white text-sm font-medium transition-colors leading-snug">Navigating State-Specific Leave Policies</p>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-base mb-6 text-white uppercase tracking-wider">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex gap-3 text-white/60 text-sm">
-                <MapPin size={16} className="text-teal-400 shrink-0 mt-0.5" />
-                <span>15th Floor, Nariman Point, Mumbai, Maharashtra 400021</span>
-              </li>
-              <li className="flex gap-3 text-white/60 text-sm">
-                <Phone size={16} className="text-teal-400 shrink-0" />
-                <span>+91 98765 43210</span>
-              </li>
-              <li className="flex gap-3 text-white/60 text-sm">
-                <Mail size={16} className="text-teal-400 shrink-0" />
-                <span>contact@labourcodes.in</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-bold text-base mb-6 text-white uppercase tracking-wider">Newsletter</h3>
-            <p className="text-white/60 text-sm mb-4">Subscribe to receive critical compliance updates directly in your inbox.</p>
-            <form className="flex flex-col gap-3">
-              <input type="email" placeholder="Your Email Address" className="bg-white/10 border border-white/20 text-white rounded px-4 py-2.5 text-sm focus:outline-none focus:border-teal-500 transition-colors placeholder:text-white/40" />
-              <button type="button" className="bg-teal-500 text-white px-4 py-2.5 rounded text-sm font-bold hover:bg-teal-600 transition-colors">Subscribe Now</button>
-            </form>
-          </div>
-        </div>
-
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 pt-8 border-t border-white/10 text-center md:text-left text-white/40 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>&copy; {new Date().getFullYear()} Labour Codes Consulting. All rights reserved.</p>
-          <div className="flex gap-5">
-            <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          <div className="pt-8 border-t border-white/10 text-white/35 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; {new Date().getFullYear()} Labour Codes Consulting Pvt. Ltd. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+              <Link to="#" className="hover:text-white transition-colors">Sitemap</Link>
+            </div>
           </div>
         </div>
       </footer>
 
       {/* Floating Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
-        <a href="tel:+919876543210" className="w-14 h-14 bg-teal-500 text-white rounded-full flex items-center justify-center shadow-xl hover:bg-teal-600 hover:scale-110 transition-all">
-          <Phone size={22} />
+      <div className="fixed bottom-6 right-5 flex flex-col gap-3 z-50">
+        <a href="tel:+919876543210"
+          className="w-13 h-13 w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center shadow-xl hover:bg-teal-600 hover:scale-110 transition-all"
+          aria-label="Call us">
+          <Phone size={20} />
         </a>
-        <a href="https://wa.me/919876543210" className="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-all">
-          <MessageCircle size={26} />
+        <a href="https://wa.me/919876543210"
+          className="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-all"
+          aria-label="WhatsApp">
+          <MessageCircle size={22} />
         </a>
       </div>
     </div>

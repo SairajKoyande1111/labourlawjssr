@@ -1,46 +1,65 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 
 const Clientele = () => {
   const clients = [
     'BCG', 'HDFC Bank', 'Hilton', 'Croma', 'Datamatics',
     'NPCI', 'Kodak', 'Tata', 'Mahindra', 'Reliance',
     'Infosys', 'Wipro', 'ITC', 'L&T', 'Maruti Suzuki',
-    'Aditya Birla', 'Godrej', 'Cipla', 'TVS', 'Hero'
+    'Aditya Birla', 'Godrej', 'Cipla', 'TVS', 'Hero',
+  ];
+
+  const industries = [
+    { name: 'Banking & Finance', count: '85+', color: 'bg-blue-50 text-blue-700 border-blue-100' },
+    { name: 'Manufacturing', count: '120+', color: 'bg-amber-50 text-amber-700 border-amber-100' },
+    { name: 'Information Technology', count: '95+', color: 'bg-purple-50 text-purple-700 border-purple-100' },
+    { name: 'Retail & FMCG', count: '70+', color: 'bg-rose-50 text-rose-700 border-rose-100' },
+    { name: 'Hospitality', count: '45+', color: 'bg-teal-50 text-teal-700 border-teal-100' },
+    { name: 'Healthcare & Pharma', count: '55+', color: 'bg-green-50 text-green-700 border-green-100' },
   ];
 
   const testimonials = [
-    { text: "Labour Codes transformed our chaotic compliance process into a streamlined, risk-free system. Their expertise in the New Wage Code is unmatched.", author: "Rajesh Sharma", role: "HR Director, TechNova" },
-    { text: "Their proactive approach to statutory audits saved us from significant penalties. They don't just consult; they partner with you.", author: "Meera Reddy", role: "CEO, Manufacturing Corp" },
-    { text: "The contract staffing solutions provided by LC allowed us to scale rapidly during our peak season without any compliance headaches.", author: "Vikram Singh", role: "VP Operations, Retail Giant" }
+    { text: "Labour Codes transformed our chaotic compliance process into a streamlined, risk-free system. Their expertise in the New Wage Code is unmatched in the industry.", author: "Rajesh Sharma", role: "HR Director, TechNova", initials: "RS" },
+    { text: "Their proactive approach to statutory audits saved us from significant penalties. They don't just consult — they become an extension of your team.", author: "Meera Reddy", role: "CEO, Manufacturing Corp", initials: "MR" },
+    { text: "The contract staffing solutions provided by LC allowed us to scale rapidly during our peak season without any compliance headaches whatsoever.", author: "Vikram Singh", role: "VP Operations, Retail Giant", initials: "VS" },
+    { text: "We've worked with multiple compliance firms. Labour Codes stands apart in their responsiveness, depth of knowledge, and ability to handle multi-state complexity.", author: "Ananya Patel", role: "CFO, Logistics Corp", initials: "AP" },
+    { text: "The POSH training and HR policy review they conducted for us was thorough and practical. Our ICC is now fully constituted and documented as required.", author: "Suresh Kumar", role: "CHRO, IT Company", initials: "SK" },
+    { text: "Our factory audit revealed gaps we didn't know existed. The remediation plan was actionable and their team was available every step of the way.", author: "Priya Nair", role: "GM Compliance, Industrial Group", initials: "PN" },
   ];
 
   return (
     <div className="w-full">
 
-      {/* Hero */}
-      <section className="relative overflow-hidden" style={{ minHeight: '380px' }}>
-        <img src="/src/assets/service-hr.png" alt="Our Clientele" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/75 via-navy-900/50 to-navy-900/20" />
-        <div className="relative max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 flex items-center py-16" style={{ minHeight: '380px' }}>
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="bg-white rounded-xl p-8 md:p-10 shadow-2xl max-w-sm md:max-w-md">
-            <p className="text-teal-500 font-bold text-xs uppercase tracking-widest mb-3">Trusted Partners</p>
-            <h1 className="text-2xl md:text-3xl font-display font-bold text-navy-900 mb-4 leading-snug">Our Esteemed Clientele</h1>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">Trusted by India's largest corporations to safeguard their compliance and manage their workforce regulations.</p>
-            <div className="flex items-center gap-2 text-xs font-semibold">
-              <Link to="/" className="bg-navy-900 text-white px-3 py-1.5 rounded hover:bg-teal-600 transition-colors">Home</Link>
-              <span className="text-gray-400">›</span>
+      {/* ── Hero ──────────────────────────────────────────── */}
+      <section className="relative overflow-hidden" style={{ minHeight: '400px' }}>
+        <img src="/assets/service-hr.png" alt="Our Clientele"
+          className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/85 via-navy-900/60 to-navy-900/20" />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center py-16" style={{ minHeight: '400px' }}>
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55 }}
+            className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl max-w-md">
+            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Trusted Partners</p>
+            <h1 className="text-2xl md:text-3xl font-display font-bold text-navy-900 mb-4 leading-snug">
+              Our Esteemed Clientele
+            </h1>
+            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+              Trusted by India's largest corporations to safeguard their compliance, manage their workforce regulations, and navigate complex labour law challenges.
+            </p>
+            <nav className="flex items-center gap-2 text-xs font-semibold">
+              <Link to="/" className="bg-navy-900 text-white px-3 py-1.5 rounded-lg hover:bg-teal-600 transition-colors">Home</Link>
+              <span className="text-gray-300">›</span>
               <span className="text-teal-600">Clientele</span>
-            </div>
+            </nav>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats */}
+      {/* ── Stats ─────────────────────────────────────────── */}
       <section className="bg-navy-900 text-white py-12">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-white/10">
             {[
               { value: '500+', label: 'Corporate Clients' },
@@ -50,32 +69,53 @@ const Clientele = () => {
             ].map((s, i) => (
               <div key={i} className="px-4">
                 <div className="text-3xl md:text-4xl font-display font-bold text-teal-400 mb-1">{s.value}</div>
-                <div className="text-white/60 text-xs uppercase tracking-wider font-semibold">{s.label}</div>
+                <div className="text-white/45 text-[11px] uppercase tracking-widest font-semibold">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Client Grid */}
-      <section className="py-20 bg-mint-50">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
+      {/* ── Industries ────────────────────────────────────── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="text-center mb-12">
+            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Industry Spread</p>
+            <h2 className="text-3xl font-display font-bold text-navy-900 mb-3">Sectors We Serve</h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">Our compliance expertise spans every major sector of the Indian economy.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {industries.map((ind, i) => (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }} transition={{ delay: i * 0.07 }}
+                className={`rounded-xl p-5 text-center border ${ind.color}`}>
+                <div className="text-2xl font-display font-bold mb-1">{ind.count}</div>
+                <div className="text-xs font-semibold leading-tight">{ind.name}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Client Grid ───────────────────────────────────── */}
+      <section className="py-20 bg-[#f8fafb]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
-            <span className="text-teal-500 font-bold text-xs uppercase tracking-widest mb-3 block">Our Portfolio</span>
+            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Our Portfolio</p>
             <h2 className="text-3xl font-display font-bold text-navy-900 mb-4">Companies We've Served</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-sm">From nimble startups to Fortune 500 conglomerates — our expertise spans every scale and sector.</p>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">From nimble startups to Fortune 500 conglomerates — our expertise spans every scale and sector of Indian industry.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
             {clients.map((client, i) => (
               <motion.div
+                key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.04 }}
-                key={i}
-                className="bg-white border border-mint-100 aspect-[3/2] rounded-xl flex items-center justify-center p-5 shadow-sm hover:shadow-md hover:border-teal-300 transition-all group"
+                className="bg-white border border-gray-100 aspect-[3/2] rounded-2xl flex items-center justify-center p-5 shadow-sm hover:shadow-md hover:border-teal-200 transition-all group cursor-default"
               >
-                <span className="font-display font-black text-xl md:text-2xl text-navy-900/30 group-hover:text-teal-600 transition-colors tracking-tight text-center">
+                <span className="font-display font-black text-xl text-navy-900/20 group-hover:text-teal-500 transition-colors tracking-tight text-center">
                   {client.toUpperCase()}
                 </span>
               </motion.div>
@@ -84,20 +124,32 @@ const Clientele = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* ── Testimonials ──────────────────────────────────── */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
-            <span className="text-teal-500 font-bold text-xs uppercase tracking-widest mb-3 block">What They Say</span>
-            <h2 className="text-3xl font-display font-bold text-navy-900">Client Testimonials</h2>
+            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">What They Say</p>
+            <h2 className="text-3xl font-display font-bold text-navy-900 mb-3">Client Testimonials</h2>
+            <p className="text-gray-500 text-sm">Hear from the HR directors and compliance heads who trust us daily.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {testimonials.map((t, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="bg-mint-50 border border-mint-100 rounded-xl p-8 hover:shadow-md transition-shadow">
-                <p className="text-navy-900 font-display italic text-base leading-relaxed mb-6">"{t.text}"</p>
-                <div>
-                  <p className="font-bold text-navy-900 text-sm">{t.author}</p>
-                  <p className="text-gray-400 text-xs mt-0.5">{t.role}</p>
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                className="bg-[#f8fafb] border border-gray-100 rounded-2xl p-7 hover:shadow-md transition-shadow">
+                <div className="flex text-teal-500 mb-4">
+                  {[...Array(5)].map((_, j) => <Star key={j} size={13} fill="currentColor" />)}
+                </div>
+                <p className="text-navy-900 text-sm italic leading-relaxed mb-6">"{t.text}"</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-teal-500/15 flex items-center justify-center text-teal-600 font-bold text-sm shrink-0">
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="font-bold text-navy-900 text-sm">{t.author}</p>
+                    <p className="text-gray-400 text-xs mt-0.5">{t.role}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -105,13 +157,16 @@ const Clientele = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-teal-500 text-white text-center">
-        <div className="max-w-3xl mx-auto px-5 md:px-10">
+      {/* ── CTA ───────────────────────────────────────────── */}
+      <section className="py-16 bg-teal-500 text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10"
+          style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #ffffff 0%, transparent 60%)' }} />
+        <div className="max-w-2xl mx-auto px-6 relative z-10">
           <h2 className="text-3xl font-display font-bold mb-5">Join industry leaders who trust Labour Codes.</h2>
-          <p className="text-white/80 mb-8">Let's discuss how we can support your compliance and HR requirements.</p>
-          <Link to="/contact" className="inline-flex items-center gap-2 bg-navy-900 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-navy-800 transition-colors shadow-xl">
-            Discuss Your Requirements <ArrowRight size={18} />
+          <p className="text-white/80 mb-8 leading-relaxed">Let's discuss how we can support your compliance and HR requirements across every state you operate in.</p>
+          <Link to="/contact"
+            className="inline-flex items-center gap-2 bg-navy-900 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-navy-800 transition-colors shadow-xl">
+            Discuss Your Requirements <ArrowRight size={17} />
           </Link>
         </div>
       </section>

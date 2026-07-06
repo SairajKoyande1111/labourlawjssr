@@ -1,63 +1,79 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const services = [
-  { slug: 'labour-law-compliance', title: 'Labour Law Compliance', img: '/src/assets/service-labour.png', desc: 'End-to-end compliance with all applicable central and state labour legislation, shielding your business from penal consequences.' },
-  { slug: 'payroll-structuring', title: 'Payroll & Salary Structuring', img: '/src/assets/service-payroll.png', desc: 'Precise payroll processing and salary structure auditing optimized for the New Labour Codes.' },
-  { slug: 'statutory-filings', title: 'Statutory Compliance & Filings', img: '/src/assets/service-statutory.png', desc: 'Flawless management of PF, ESIC, PT, LWF, TDS, alongside regular returns and meticulous statutory filings.' },
-  { slug: 'contract-staffing', title: 'People Outsourcing & Staffing', img: '/src/assets/service-staffing.png', desc: 'Flexible, compliant workforce solutions via outsourcing, managing everything from onboarding to exit.' },
-  { slug: 'audits-governance', title: 'Audits & Governance', img: '/src/assets/service-audits.png', desc: 'Rigorous labour audits, factory audits, and establishment compliance reviews to identify and seal gaps.' },
-  { slug: 'registrations-licensing', title: 'Registrations & Licensing', img: '/src/assets/service-licensing.png', desc: 'Procurement of Shop & Establishment, Factory License, Contract Labour License and timely renewals.' },
-  { slug: 'hr-policy-advisory', title: 'HR Policy & Advisory', img: '/src/assets/service-hr.png', desc: 'Drafting robust HR handbooks, standing orders, POSH policies, and airtight employment contracts.' },
-  { slug: 'litigation-support', title: 'Legal Representation', img: '/src/assets/service-legal.png', desc: 'Expert labour court representation, conciliation proceedings, and robust litigation support.' },
-  { slug: 'training-workshops', title: 'Training & Workshops', img: '/src/assets/service-training.png', desc: 'In-depth labour law training sessions designed to upskill internal HR teams and management.' },
+  { slug: 'labour-law-compliance', title: 'Labour Law Compliance', img: '/assets/service-labour.png', desc: 'End-to-end compliance with all applicable central and state labour legislation, shielding your business from penal consequences.' },
+  { slug: 'payroll-structuring', title: 'Payroll & Salary Structuring', img: '/assets/service-payroll.png', desc: 'Precise payroll processing and salary structure auditing optimized for the New Labour Code definitions of wages.' },
+  { slug: 'statutory-filings', title: 'Statutory Compliance & Filings', img: '/assets/service-statutory.png', desc: 'Flawless management of PF, ESIC, PT, LWF, TDS, alongside regular returns and meticulous statutory filings.' },
+  { slug: 'contract-staffing', title: 'People Outsourcing & Staffing', img: '/assets/service-staffing.png', desc: 'Flexible, compliant workforce solutions via outsourcing, managing everything from onboarding to full & final exit.' },
+  { slug: 'audits-governance', title: 'Audits & Governance', img: '/assets/service-audits.png', desc: 'Rigorous labour audits, factory audits, and establishment compliance reviews to identify and seal regulatory gaps.' },
+  { slug: 'registrations-licensing', title: 'Registrations & Licensing', img: '/assets/service-licensing.png', desc: 'Procurement of Shop & Establishment, Factory License, Contract Labour License with timely renewals.' },
+  { slug: 'hr-policy-advisory', title: 'HR Policy & Advisory', img: '/assets/service-hr.png', desc: 'Drafting robust HR handbooks, standing orders, POSH policies, and legally airtight employment contracts.' },
+  { slug: 'litigation-support', title: 'Legal Representation', img: '/assets/service-legal.png', desc: 'Expert labour court representation, conciliation proceedings, and robust litigation support across India.' },
+  { slug: 'training-workshops', title: 'Training & Workshops', img: '/assets/service-training.png', desc: 'In-depth labour law training sessions designed to upskill internal HR teams and senior management.' },
 ];
 
 const Services = () => {
   return (
     <div className="w-full">
 
-      {/* Hero */}
-      <section className="relative overflow-hidden" style={{ minHeight: '380px' }}>
-        <img src="/src/assets/service-labour.png" alt="Our Services" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/75 via-navy-900/50 to-navy-900/20" />
-        <div className="relative max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 flex items-center py-16" style={{ minHeight: '380px' }}>
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="bg-white rounded-xl p-8 md:p-10 shadow-2xl max-w-sm md:max-w-md">
-            <p className="text-teal-500 font-bold text-xs uppercase tracking-widest mb-3">What We Offer</p>
-            <h1 className="text-2xl md:text-3xl font-display font-bold text-navy-900 mb-4 leading-snug">Comprehensive Compliance Solutions for Indian Businesses</h1>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">Tailored to meet the exacting and evolving regulatory demands across all industries.</p>
-            <div className="flex items-center gap-2 text-xs font-semibold">
-              <Link to="/" className="bg-navy-900 text-white px-3 py-1.5 rounded hover:bg-teal-600 transition-colors">Home</Link>
-              <span className="text-gray-400">›</span>
+      {/* ── Page Hero ─────────────────────────────────────── */}
+      <section className="relative overflow-hidden" style={{ minHeight: '400px' }}>
+        <img src="/assets/service-labour.png" alt="Our Services"
+          className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/85 via-navy-900/60 to-navy-900/20" />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center py-16" style={{ minHeight: '400px' }}>
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.55 }}
+            className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl max-w-md">
+            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">What We Offer</p>
+            <h1 className="text-2xl md:text-3xl font-display font-bold text-navy-900 mb-4 leading-snug">
+              Comprehensive Compliance Solutions for Indian Businesses
+            </h1>
+            <p className="text-gray-500 text-sm leading-relaxed mb-6">
+              Tailored to meet the exacting and evolving regulatory demands across all industries and scales of business.
+            </p>
+            <nav className="flex items-center gap-2 text-xs font-semibold">
+              <Link to="/" className="bg-navy-900 text-white px-3 py-1.5 rounded-lg hover:bg-teal-600 transition-colors">Home</Link>
+              <span className="text-gray-300">›</span>
               <span className="text-teal-600">Services</span>
-            </div>
+            </nav>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 bg-mint-50">
-        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
+      {/* ── Services Grid ─────────────────────────────────── */}
+      <section className="py-20 bg-[#f8fafb]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-14">
-            <span className="text-teal-500 font-bold text-xs uppercase tracking-widest mb-3 block">Our Expertise</span>
-            <h2 className="text-3xl font-display font-bold text-navy-900">9 Specialized Practice Areas</h2>
+            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Our Expertise</p>
+            <h2 className="text-3xl font-display font-bold text-navy-900 mb-3">9 Specialized Practice Areas</h2>
+            <p className="text-gray-500 max-w-xl mx-auto text-sm">Every service is designed to give your organization complete legal protection and operational efficiency.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {services.map((service, i) => (
-              <motion.div key={service.slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }} className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col border border-mint-100">
+              <motion.div key={service.slug}
+                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col border border-gray-100 group">
                 <div className="h-52 relative overflow-hidden">
-                  <img src={service.img} alt={service.title} className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/30 to-transparent" />
+                  <img src={service.img} alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/25 to-transparent" />
+                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-teal-500 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <ArrowRight size={13} className="text-white" />
+                  </div>
                 </div>
                 <div className="p-7 flex flex-col flex-grow">
-                  <h3 className="text-xl font-display font-bold text-navy-900 mb-3">{service.title}</h3>
+                  <h3 className="text-lg font-display font-bold text-navy-900 mb-3">{service.title}</h3>
                   <p className="text-gray-500 mb-6 flex-grow leading-relaxed text-sm">{service.desc}</p>
-                  <Link to={`/services/${service.slug}`} className="group flex items-center justify-between mt-auto border-t border-gray-100 pt-5">
-                    <span className="text-teal-600 font-bold text-sm group-hover:text-navy-900 transition-colors">Explore Details</span>
-                    <span className="w-9 h-9 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 group-hover:bg-navy-900 group-hover:text-white transition-all">
-                      <ArrowRight size={16} />
+                  <Link to={`/services/${service.slug}`}
+                    className="flex items-center justify-between mt-auto border-t border-gray-100 pt-5 group/link">
+                    <span className="text-teal-600 font-bold text-sm group-hover/link:text-navy-900 transition-colors">Explore Details</span>
+                    <span className="w-9 h-9 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 group-hover/link:bg-navy-900 group-hover/link:text-white transition-all">
+                      <ChevronRight size={15} />
                     </span>
                   </Link>
                 </div>
@@ -67,14 +83,15 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-white border-t border-gray-100">
-        <div className="max-w-3xl mx-auto px-5 md:px-10 text-center">
-          <span className="text-teal-500 font-bold text-xs uppercase tracking-widest mb-4 block">Get Started</span>
-          <h2 className="text-3xl font-display font-bold text-navy-900 mb-5">Need a custom compliance structure?</h2>
-          <p className="text-gray-500 mb-10 text-base">We understand that every business has unique operational needs. Contact us for a bespoke audit and advisory package.</p>
-          <Link to="/contact" className="inline-block bg-navy-900 text-white px-10 py-4 rounded-full font-bold hover:bg-teal-600 transition-colors shadow-lg text-sm">
-            Request Custom Consultation
+      {/* ── CTA ───────────────────────────────────────────── */}
+      <section className="py-20 bg-navy-900 text-white text-center">
+        <div className="max-w-2xl mx-auto px-6">
+          <p className="text-teal-400 font-bold text-[11px] uppercase tracking-[0.18em] mb-4">Get Started</p>
+          <h2 className="text-3xl font-display font-bold mb-5">Need a custom compliance structure?</h2>
+          <p className="text-white/55 mb-10 text-[15px] leading-relaxed">We understand every business has unique operational needs. Contact us for a bespoke audit and advisory package tailored to your industry.</p>
+          <Link to="/contact"
+            className="inline-flex items-center gap-2 bg-teal-500 text-white px-10 py-4 rounded-full font-bold hover:bg-teal-600 transition-colors shadow-xl text-sm">
+            Request Custom Consultation <ArrowRight size={16} />
           </Link>
         </div>
       </section>
