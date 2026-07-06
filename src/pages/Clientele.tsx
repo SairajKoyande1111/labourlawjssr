@@ -5,19 +5,23 @@ import { ArrowRight, Star } from 'lucide-react';
 
 const Clientele = () => {
   const clients = [
-    'BCG', 'HDFC Bank', 'Hilton', 'Croma', 'Datamatics',
-    'NPCI', 'Kodak', 'Tata', 'Mahindra', 'Reliance',
-    'Infosys', 'Wipro', 'ITC', 'L&T', 'Maruti Suzuki',
-    'Aditya Birla', 'Godrej', 'Cipla', 'TVS', 'Hero',
+    { name: 'HDFC Bank',  init: 'HB' },
+    { name: 'Tata',       init: 'T'  },
+    { name: 'Reliance',   init: 'R'  },
+    { name: 'Infosys',    init: 'I'  },
+    { name: 'Wipro',      init: 'W'  },
+    { name: 'Mahindra',   init: 'M'  },
+    { name: 'L&T',        init: 'L'  },
+    { name: 'ITC',        init: 'ITC'},
   ];
 
   const industries = [
-    { name: 'Banking & Finance', count: '85+', color: 'bg-blue-50 text-blue-700 border-blue-100' },
-    { name: 'Manufacturing', count: '120+', color: 'bg-amber-50 text-amber-700 border-amber-100' },
-    { name: 'Information Technology', count: '95+', color: 'bg-purple-50 text-purple-700 border-purple-100' },
-    { name: 'Retail & FMCG', count: '70+', color: 'bg-rose-50 text-rose-700 border-rose-100' },
-    { name: 'Hospitality', count: '45+', color: 'bg-teal-50 text-teal-700 border-teal-100' },
-    { name: 'Healthcare & Pharma', count: '55+', color: 'bg-green-50 text-green-700 border-green-100' },
+    { name: 'Banking & Finance',    count: '85+'  },
+    { name: 'Manufacturing',        count: '120+' },
+    { name: 'Information Technology', count: '95+' },
+    { name: 'Retail & FMCG',        count: '70+'  },
+    { name: 'Hospitality',          count: '45+'  },
+    { name: 'Healthcare & Pharma',  count: '55+'  },
   ];
 
   const testimonials = [
@@ -88,9 +92,9 @@ const Clientele = () => {
             {industries.map((ind, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                className={`rounded-xl p-5 text-center border ${ind.color}`}>
-                <div className="text-2xl font-display font-bold mb-1">{ind.count}</div>
-                <div className="text-xs font-semibold leading-tight">{ind.name}</div>
+                className="rounded-xl p-5 text-center border border-gray-100 bg-[#f8fafb] hover:border-teal-200 hover:bg-white transition-all">
+                <div className="text-2xl font-display font-bold mb-1 text-teal-500">{ind.count}</div>
+                <div className="text-xs font-semibold leading-tight text-gray-500">{ind.name}</div>
               </motion.div>
             ))}
           </div>
@@ -105,19 +109,23 @@ const Clientele = () => {
             <h2 className="text-3xl font-display font-bold text-navy-900 mb-4">Companies We've Served</h2>
             <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">From nimble startups to Fortune 500 conglomerates — our expertise spans every scale and sector of Indian industry.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {clients.map((client, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.04 }}
-                className="bg-white border border-gray-100 aspect-[3/2] rounded-2xl flex items-center justify-center p-5 shadow-sm hover:shadow-md hover:border-teal-200 transition-all group cursor-default"
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className="bg-white border border-gray-100 aspect-[3/2] rounded-2xl flex items-center justify-center shadow-sm hover:shadow-lg hover:border-teal-100 transition-all group cursor-default"
               >
-                <span className="font-display font-black text-xl text-navy-900/20 group-hover:text-teal-500 transition-colors tracking-tight text-center">
-                  {client.toUpperCase()}
-                </span>
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-16 h-16 rounded-2xl bg-gray-50 border border-gray-100 group-hover:border-teal-200 group-hover:bg-teal-50 transition-all flex items-center justify-center">
+                    <span className="font-display font-black text-xl text-navy-900/25 group-hover:text-teal-500 transition-colors tracking-tight">
+                      {client.init}
+                    </span>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

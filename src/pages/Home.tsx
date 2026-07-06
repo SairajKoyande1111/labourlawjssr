@@ -249,15 +249,33 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ── Clientele Strip ───────────────────────────────── */}
-      <section className="py-14 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
-          <p className="text-xs font-bold text-gray-300 uppercase tracking-[0.2em] mb-10">Serving 500+ Corporations Across India</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14">
-            {['HDFC Bank', 'Tata', 'Reliance', 'Wipro', 'Infosys', 'L&T', 'Mahindra', 'ITC'].map((client) => (
-              <div key={client}
-                className="text-lg md:text-xl font-display font-black text-navy-900/20 hover:text-navy-900/50 tracking-tight transition-colors cursor-default">
-                {client.toUpperCase()}
+      {/* ── Scrolling Client Logos ────────────────────────── */}
+      <section className="py-10 bg-white border-y border-gray-100 overflow-hidden">
+        <p className="text-center text-[10px] font-bold text-gray-300 uppercase tracking-[0.22em] mb-7">Serving 500+ Corporations Across India</p>
+        <div className="overflow-hidden relative">
+          <div className="animate-marquee">
+            {[
+              { name: 'HDFC Bank', init: 'HB' },
+              { name: 'Tata', init: 'T' },
+              { name: 'Reliance', init: 'R' },
+              { name: 'Wipro', init: 'W' },
+              { name: 'Infosys', init: 'I' },
+              { name: 'L&T', init: 'L' },
+              { name: 'Mahindra', init: 'M' },
+              { name: 'ITC', init: 'ITC' },
+              { name: 'HDFC Bank', init: 'HB' },
+              { name: 'Tata', init: 'T' },
+              { name: 'Reliance', init: 'R' },
+              { name: 'Wipro', init: 'W' },
+              { name: 'Infosys', init: 'I' },
+              { name: 'L&T', init: 'L' },
+              { name: 'Mahindra', init: 'M' },
+              { name: 'ITC', init: 'ITC' },
+            ].map((c, i) => (
+              <div key={i} className="flex flex-col items-center gap-2 mx-10 shrink-0">
+                <div className="w-14 h-14 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center shadow-sm">
+                  <span className="font-display font-black text-base text-navy-900/30 tracking-tight">{c.init}</span>
+                </div>
               </div>
             ))}
           </div>

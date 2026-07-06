@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, Menu, X, ChevronDown } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, ChevronDown, ArrowUp } from 'lucide-react';
 
 const IconFacebook = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -99,13 +99,10 @@ const Layout = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-[72px] flex justify-between items-center">
 
           <Link to="/" className="flex items-center gap-3 shrink-0">
-            <div className="flex flex-col items-center justify-center w-10 h-10 bg-teal-500 rounded-lg shadow-sm">
+            <div className="flex items-center justify-center w-10 h-10 bg-teal-500 rounded-lg shadow-sm">
               <span className="text-white font-black text-lg leading-none tracking-tighter">LC</span>
             </div>
-            <div>
-              <div className="font-display font-bold text-xl text-navy-900 leading-none">Labour Codes</div>
-              <div className="text-[9px] text-gray-400 font-semibold tracking-[0.18em] uppercase mt-0.5">Labour Laws | Compliance | Staffing</div>
-            </div>
+            <div className="font-display font-bold text-xl text-navy-900 leading-none">Labour Codes</div>
           </Link>
 
           {/* Desktop Nav */}
@@ -307,6 +304,15 @@ const Layout = () => {
         </div>
       </footer>
 
+      {/* Scroll to Top */}
+      {scrolled && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-6 right-6 z-50 w-11 h-11 bg-navy-900 hover:bg-teal-500 text-white rounded-full flex items-center justify-center shadow-xl transition-all hover:scale-110"
+          aria-label="Scroll to top">
+          <ArrowUp size={18} />
+        </button>
+      )}
     </div>
   );
 };
