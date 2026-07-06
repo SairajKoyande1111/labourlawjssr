@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, ChevronRight, Star, Quote, TrendingUp, Shield, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle, ChevronRight, Star, Quote, TrendingUp, Shield, Users, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const fadeUp = {
@@ -8,13 +8,31 @@ const fadeUp = {
   show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.55, delay: i * 0.1 } }),
 };
 
+const servicesList = [
+  { name: 'Labour Law Compliance', slug: 'labour-law-compliance' },
+  { name: 'Payroll & Salary Structuring', slug: 'payroll-structuring' },
+  { name: 'Statutory Compliance & Filings', slug: 'statutory-filings' },
+  { name: 'People Outsourcing & Staffing', slug: 'contract-staffing' },
+  { name: 'Audits & Governance', slug: 'audits-governance' },
+  { name: 'Registrations & Licensing', slug: 'registrations-licensing' },
+  { name: 'HR Policy & Advisory', slug: 'hr-policy-advisory' },
+  { name: 'Legal Representation', slug: 'litigation-support' },
+  { name: 'Training & Workshops', slug: 'training-workshops' },
+];
+
 const Home = () => {
-  const stats = [
-    { value: '500+', label: 'Corporate Clients' },
-    { value: '21+', label: 'Years Experience' },
-    { value: '50+', label: 'Legal Experts' },
-    { value: '15+', label: 'States Covered' },
-  ];
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
 
   const testimonials = [
     { text: "Labour Codes transformed our chaotic compliance process into a streamlined, risk-free system. Their expertise in the New Wage Code is unmatched.", author: "Rajesh Sharma", role: "HR Director, TechNova" },
@@ -32,7 +50,7 @@ const Home = () => {
     <div className="w-full">
 
       {/* ── Hero ───────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: '620px' }}>
+      <section className="relative overflow-hidden" style={{ height: 'calc(100vh - 114px)', minHeight: '500px', maxHeight: '820px' }}>
         <img src="/assets/hero-office.png" alt="Corporate Office"
           className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/30" />
@@ -40,56 +58,65 @@ const Home = () => {
         {/* Decorative bracket */}
         <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-1 opacity-70">
           <div className="w-3 h-3 border-t-2 border-l-2 border-teal-400" />
-          <div className="w-0.5 h-52 bg-teal-400/40 mx-1" />
+          <div className="w-0.5 h-40 bg-teal-400/40 mx-1" />
           <div className="w-3 h-3 border-b-2 border-l-2 border-teal-400" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center" style={{ minHeight: '620px' }}>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 h-full flex items-center">
           <motion.div initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.12 } } }} className="max-w-2xl">
 
             <motion.span variants={fadeUp}
-              className="inline-block text-teal-400 font-bold tracking-[0.2em] uppercase text-xs mb-5">
+              className="inline-block text-teal-400 font-bold tracking-[0.2em] uppercase text-xs mb-4">
               LABOUR CODES
             </motion.span>
 
             <motion.h1 variants={fadeUp}
-              className="text-4xl md:text-5xl lg:text-[3.6rem] font-display font-bold text-white leading-[1.12] mb-7">
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-[1.15] mb-5">
               Future is perfect when your present makes sense
             </motion.h1>
 
-            <motion.div variants={fadeUp} className="space-y-2 mb-8 text-white/85 text-sm md:text-base font-medium">
+            <motion.div variants={fadeUp} className="space-y-1.5 mb-7 text-white/80 text-sm font-medium">
               <p>✦ 500+ Corporate Clients across India</p>
               <p>✦ 21+ Years of uninterrupted compliance excellence</p>
               <p>✦ 50+ Dedicated Labour Law Experts</p>
               <p>✦ 15+ States covered with local regulatory expertise</p>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
               <Link to="/contact"
-                className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-8 py-3.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-teal-500/30 hover:scale-[1.02]">
-                Free Consultation <ArrowRight size={16} />
+                className="inline-flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white px-7 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-teal-500/30 hover:scale-[1.02]">
+                Free Consultation <ArrowRight size={15} />
               </Link>
-              <Link to="/services"
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-white/20 transition-all">
-                Explore Services
-              </Link>
+
+              {/* Services dropdown */}
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-7 py-3 rounded-full font-semibold text-sm hover:bg-white/20 transition-all">
+                  Our Services
+                  <ChevronDown size={15} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="absolute left-0 top-full mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50">
+                    {servicesList.map((s) => (
+                      <Link
+                        key={s.slug}
+                        to={`/services/${s.slug}`}
+                        onClick={() => setServicesOpen(false)}
+                        className="flex items-center gap-2.5 px-5 py-2.5 text-sm text-gray-700 hover:text-teal-600 hover:bg-teal-50 transition-colors font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0" />
+                        {s.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ── Stats Bar ─────────────────────────────────────── */}
-      <section className="bg-navy-900 py-10 border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-white/10">
-            {stats.map((stat, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}>
-                <div className="text-3xl md:text-4xl font-display font-bold text-teal-400 mb-1">{stat.value}</div>
-                <div className="text-white/45 font-semibold text-[11px] uppercase tracking-widest">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 

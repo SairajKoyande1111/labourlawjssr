@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, MapPin, Menu, X, MessageCircle, ChevronDown } from 'lucide-react';
+import { Phone, Mail, MapPin, Menu, X, ChevronDown } from 'lucide-react';
 
 const IconFacebook = () => (
   <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -307,19 +307,6 @@ const Layout = () => {
         </div>
       </footer>
 
-      {/* Floating Buttons */}
-      <div className="fixed bottom-6 right-5 flex flex-col gap-3 z-50">
-        <a href="tel:+919876543210"
-          className="w-13 h-13 w-12 h-12 bg-teal-500 text-white rounded-full flex items-center justify-center shadow-xl hover:bg-teal-600 hover:scale-110 transition-all"
-          aria-label="Call us">
-          <Phone size={20} />
-        </a>
-        <a href="https://wa.me/919876543210"
-          className="w-12 h-12 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-all"
-          aria-label="WhatsApp">
-          <MessageCircle size={22} />
-        </a>
-      </div>
     </div>
   );
 };
