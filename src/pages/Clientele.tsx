@@ -12,13 +12,13 @@ const Clientele = () => {
   return (
     <div className="w-full bg-white">
       <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">Our Esteemed Clientele</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">Trusted by India's largest corporations to safeguard their compliance and manage their workforce regulations.</p>
         </div>
       </section>
 
-      <section className="py-24 max-w-7xl mx-auto px-4 md:px-8">
+      <section className="py-24 max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
           {clients.map((client, i) => (
             <motion.div 

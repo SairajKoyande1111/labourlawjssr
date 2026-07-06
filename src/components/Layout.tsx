@@ -19,8 +19,8 @@ const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans">
       {/* Top Contact Strip */}
-      <div className="bg-navy-900 text-white/80 py-2 px-4 md:px-8 text-xs md:text-sm border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div className="bg-navy-900 text-white/80 py-2 text-xs md:text-sm border-b border-white/10">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 flex flex-col sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1"><Phone size={14} className="text-teal-500" /> +91 98765 43210</span>
             <span className="flex items-center gap-1"><Mail size={14} className="text-teal-500" /> contact@labourcodes.in</span>
@@ -33,7 +33,7 @@ const Layout = () => {
 
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex justify-between items-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 h-20 flex justify-between items-center">
           <Link to="/" className="flex flex-col">
             <div className="flex items-center gap-2">
               <span className="bg-navy-900 text-white font-display font-bold text-2xl px-2 py-1 rounded">LC</span>
@@ -88,7 +88,7 @@ const Layout = () => {
 
       {/* Footer */}
       <footer className="bg-navy-900 text-white pt-16 pb-8 border-t-[8px] border-teal-500">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
               <span className="bg-white text-navy-900 font-display font-bold text-2xl px-2 py-1 rounded">LC</span>
@@ -152,7 +152,7 @@ const Layout = () => {
           </div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-8 border-t border-white/10 text-center md:text-left text-white/50 text-sm flex flex-col md:flex-row justify-between items-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 pt-8 border-t border-white/10 text-center md:text-left text-white/50 text-sm flex flex-col md:flex-row justify-between items-center">
           <p>&copy; {new Date().getFullYear()} Labour Codes Consulting. All rights reserved.</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <Link to="#" className="hover:text-white">Privacy Policy</Link>

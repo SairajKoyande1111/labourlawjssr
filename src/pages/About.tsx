@@ -8,7 +8,7 @@ const About = () => {
     <div className="w-full">
       {/* Hero */}
       <section className="bg-navy-900 text-white py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">The Standard in Compliance</h1>
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
             For over two decades, Labour Codes has been the trusted partner for Indian enterprises, demystifying complex regulations and building resilient HR frameworks.
@@ -18,7 +18,7 @@ const About = () => {
 
       {/* Story */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
               <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden relative">
@@ -47,7 +47,7 @@ const About = () => {
 
       {/* Mission & Vision */}
       <section className="py-24 bg-gray-50 border-y border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="bg-white p-10 rounded-lg shadow-sm border border-gray-100">
               <div className="w-16 h-16 bg-navy-50 text-navy-900 rounded-full flex items-center justify-center mb-6">
@@ -73,7 +73,7 @@ const About = () => {
 
       {/* Core Values */}
       <section className="py-24 bg-navy-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Our Core Values</h2>
             <p className="text-teal-400">The principles that guide every audit, advice, and action.</p>

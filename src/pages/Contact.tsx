@@ -5,13 +5,13 @@ const Contact = () => {
   return (
     <div className="w-full bg-gray-50 min-h-screen">
       <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">Contact Us</h1>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">Schedule a consultation with our legal experts to discuss your compliance and HR requirements.</p>
         </div>
       </section>
 
-      <div className="py-20 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="py-20 max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           
           {/* Form */}

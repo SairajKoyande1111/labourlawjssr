@@ -36,13 +36,13 @@ const Careers = () => {
   return (
     <div className="w-full">
       <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">Career Opportunities</h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto">Build your career with India's premier compliance firm, or discover opportunities with our esteemed corporate clients.</p>
         </div>
       </section>
 
-      <div className="py-20 max-w-5xl mx-auto px-4 md:px-8">
+      <div className="py-20 max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
         <section className="mb-24">
           <div className="mb-10 text-center md:text-left">
             <span className="text-teal-600 font-bold uppercase tracking-wider text-sm mb-2 block">Join Our Team</span>

@@ -19,7 +19,7 @@ const Services = () => {
   return (
     <div className="w-full">
       <section className="bg-navy-900 text-white py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">Our Services</h1>
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
             Comprehensive solutions tailored to meet the exacting and evolving regulatory demands of Indian businesses.
@@ -28,7 +28,7 @@ const Services = () => {
       </section>
 
       <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((service, i) => (
               <motion.div key={service.slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }} className="bg-white rounded-xl shadow-sm hover:shadow-2xl transition-shadow duration-300 overflow-hidden flex flex-col border border-gray-100">

@@ -14,7 +14,7 @@ const ServiceDetail = () => {
         <div className="absolute inset-0 opacity-20">
           <img src="/src/assets/service-labour.png" alt="Background" className="w-full h-full object-cover" />
         </div>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 relative z-10">
           <Link to="/services" className="inline-flex items-center gap-2 text-teal-400 hover:text-white transition-colors mb-8 font-medium">
             <ArrowLeft size={16} /> Back to All Services
           </Link>
@@ -25,7 +25,7 @@ const ServiceDetail = () => {
 
       {/* Content */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-col lg:flex-row gap-16">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 flex flex-col lg:flex-row gap-16">
           <div className="lg:w-2/3">
             <div className="prose prose-lg max-w-none text-gray-700">
               <h2 className="text-3xl font-display font-bold text-navy-900 mb-6">Overview</h2>

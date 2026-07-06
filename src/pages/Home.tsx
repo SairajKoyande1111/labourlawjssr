@@ -26,7 +26,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/90 to-transparent mix-blend-multiply"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 relative z-10">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-block bg-teal-500/20 text-teal-400 font-semibold tracking-widest uppercase text-xs mb-6 px-3 py-1 rounded-full border border-teal-500/30">India's Premier HR & Compliance Firm</span>
@@ -52,7 +52,7 @@ const Home = () => {
       {/* Stats Section */}
       <section className="bg-navy-800 text-white py-16 border-y border-white/10 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
             {stats.map((stat, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
@@ -66,7 +66,7 @@ const Home = () => {
 
       {/* Why Choose Us */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
               <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
@@ -111,7 +111,7 @@ const Home = () => {
 
       {/* Services Preview */}
       <section className="py-24 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <span className="text-teal-600 font-bold tracking-wider uppercase text-sm mb-4 block">Our Expertise</span>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-navy-900 mb-4">Comprehensive Compliance Solutions</h2>
@@ -150,7 +150,7 @@ const Home = () => {
       {/* Testimonials */}
       <section className="py-24 bg-navy-900 text-white relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-500 via-navy-900 to-navy-900"></div>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Trusted by Industry Leaders</h2>
             <p className="text-teal-400">Don't just take our word for it.</p>
@@ -174,7 +174,7 @@ const Home = () => {
 
       {/* Clientele Strip */}
       <section className="py-16 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 text-center">
           <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">Serving 500+ Corporations Across India</p>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
             {['HDFC Bank', 'Tata Motors', 'Reliance', 'Wipro', 'Infosys', 'L&T'].map((client) => (
@@ -186,7 +186,7 @@ const Home = () => {
 
       {/* Recent Insights */}
       <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="flex justify-between items-end mb-12">
             <div>
               <span className="text-teal-600 font-bold tracking-wider uppercase text-sm mb-2 block">Knowledge Hub</span>

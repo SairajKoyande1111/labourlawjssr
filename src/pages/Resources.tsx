@@ -24,13 +24,13 @@ const Resources = () => {
   return (
     <div className="w-full bg-gray-50 min-h-screen">
       <section className="bg-navy-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-6">Resources & Insights</h1>
           <p className="text-xl text-white/80 max-w-2xl">Expert analysis, regulatory updates, and practical templates to keep you informed and compliant.</p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
+      <div className="max-w-[1600px] mx-auto px-5 md:px-10 lg:px-16 py-12">
         {/* Filters */}
         <div className="flex flex-wrap gap-3 mb-12 border-b border-gray-200 pb-6">
           {filters.map(f => (
