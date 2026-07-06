@@ -36,7 +36,7 @@ const Home = () => {
   }, []);
 
   const testimonials = [
-    { text: "Labour Codes transformed our chaotic compliance process into a streamlined, risk-free system. Their expertise in the New Wage Code is unmatched.", author: "Rajesh Sharma", role: "HR Director, TechNova" },
+    { text: "Labour Law transformed our chaotic compliance process into a streamlined, risk-free system. Their expertise in the New Wage Code is unmatched.", author: "Rajesh Sharma", role: "HR Director, TechNova" },
     { text: "Their proactive approach to statutory audits saved us from significant penalties. They don't just consult — they partner with you for the long haul.", author: "Meera Reddy", role: "CEO, Manufacturing Corp" },
     { text: "The contract staffing solutions provided by LC allowed us to scale rapidly during peak season without any compliance headaches.", author: "Vikram Singh", role: "VP Operations, Retail Giant" },
   ];
@@ -68,7 +68,7 @@ const Home = () => {
 
             <motion.span variants={fadeUp}
               className="inline-block text-teal-400 font-bold tracking-[0.2em] uppercase text-xs mb-4">
-              LABOUR CODES
+              LABOUR LAW
             </motion.span>
 
             <motion.h1 variants={fadeUp}
@@ -129,7 +129,7 @@ const Home = () => {
             <div className="lg:w-1/2">
               <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }} transition={{ duration: 0.55 }}>
-                <p className="text-teal-500 font-bold tracking-[0.18em] uppercase text-xs mb-4">Why Labour Codes</p>
+                <p className="text-teal-500 font-bold tracking-[0.18em] uppercase text-xs mb-4">Why Labour Law</p>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-navy-900 mb-5 leading-snug">
                   Expertise that protects your business and empowers your workforce.
                 </h2>

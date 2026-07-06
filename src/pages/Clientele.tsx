@@ -17,10 +17,10 @@ const Clientele = () => {
   ];
 
   const testimonials = [
-    { text: "Labour Codes transformed our chaotic compliance process into a streamlined, risk-free system. Their expertise in the New Wage Code is unmatched in the industry.", author: "Rajesh Sharma", role: "HR Director, TechNova", initials: "RS" },
+    { text: "Labour Law transformed our chaotic compliance process into a streamlined, risk-free system. Their expertise in the New Wage Code is unmatched in the industry.", author: "Rajesh Sharma", role: "HR Director, TechNova", initials: "RS" },
     { text: "Their proactive approach to statutory audits saved us from significant penalties. They don't just consult — they become an extension of your team.", author: "Meera Reddy", role: "CEO, Manufacturing Corp", initials: "MR" },
     { text: "The contract staffing solutions provided by LC allowed us to scale rapidly during our peak season without any compliance headaches whatsoever.", author: "Vikram Singh", role: "VP Operations, Retail Giant", initials: "VS" },
-    { text: "We've worked with multiple compliance firms. Labour Codes stands apart in their responsiveness, depth of knowledge, and ability to handle multi-state complexity.", author: "Ananya Patel", role: "CFO, Logistics Corp", initials: "AP" },
+    { text: "We've worked with multiple compliance firms. Labour Law stands apart in their responsiveness, depth of knowledge, and ability to handle multi-state complexity.", author: "Ananya Patel", role: "CFO, Logistics Corp", initials: "AP" },
     { text: "The POSH training and HR policy review they conducted for us was thorough and practical. Our ICC is now fully constituted and documented as required.", author: "Suresh Kumar", role: "CHRO, IT Company", initials: "SK" },
     { text: "Our factory audit revealed gaps we didn't know existed. The remediation plan was actionable and their team was available every step of the way.", author: "Priya Nair", role: "GM Compliance, Industrial Group", initials: "PN" },
   ];
@@ -137,7 +137,7 @@ const Clientele = () => {
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #ffffff 0%, transparent 60%)' }} />
         <div className="max-w-2xl mx-auto px-6 relative z-10">
-          <h2 className="text-3xl font-display font-bold mb-5">Join industry leaders who trust Labour Codes.</h2>
+          <h2 className="text-3xl font-display font-bold mb-5">Join industry leaders who trust Labour Law.</h2>
           <p className="text-white/80 mb-8 leading-relaxed">Let's discuss how we can support your compliance and HR requirements across every state you operate in.</p>
           <Link to="/contact"
             className="inline-flex items-center gap-2 bg-navy-900 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-navy-800 transition-colors shadow-xl">

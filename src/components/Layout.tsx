@@ -127,7 +127,7 @@ const Layout = () => {
 
           <Link to="/" className="flex items-center gap-3.5 shrink-0 group">
             <LogoMark />
-            <span className="font-display font-bold text-[1.35rem] text-navy-900 tracking-tight leading-none">Labour Codes</span>
+            <span className="font-display font-bold text-[1.35rem] text-navy-900 tracking-tight leading-none">Labour Law</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -252,7 +252,7 @@ const Layout = () => {
               <div className="flex items-center gap-3.5 mb-5">
                 <LogoMarkWhite />
                 <div className="flex flex-col leading-none">
-                  <span className="font-display font-bold text-xl text-white tracking-tight leading-none">Labour Codes</span>
+                  <span className="font-display font-bold text-xl text-white tracking-tight leading-none">Labour Law</span>
                   <span className="text-[9px] font-semibold text-teal-400 tracking-[0.22em] uppercase mt-1">Compliance · Law · Staffing</span>
                 </div>
               </div>
@@ -334,7 +334,7 @@ const Layout = () => {
           </div>
 
           <div className="pt-8 border-t border-white/10 text-white/35 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; {new Date().getFullYear()} Labour Codes Consulting Pvt. Ltd. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Labour Law Consulting Pvt. Ltd. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>

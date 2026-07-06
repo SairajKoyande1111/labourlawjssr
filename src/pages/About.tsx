@@ -62,10 +62,10 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-gray-600 text-[15px] leading-relaxed">
                 <p>
-                  Founded in 2003, Labour Codes began with a singular vision: to bridge the gap between complex legal statutes and practical business operations. What started as a boutique advisory firm in Mumbai has grown into a pan-India compliance powerhouse, trusted by some of India's most respected corporations.
+                  Founded in 2003, Labour Law began with a singular vision: to bridge the gap between complex legal statutes and practical business operations. What started as a boutique advisory firm in Mumbai has grown into a pan-India compliance powerhouse, trusted by some of India's most respected corporations.
                 </p>
                 <p>
-                  We recognized early that compliance is not merely about avoiding penalties — it's about creating an ethical, structured, and highly motivated workforce. Our evolution has mirrored the transformation of Indian labour laws, culminating in our unmatched expertise in the recent comprehensive Labour Codes consolidation.
+                  We recognized early that compliance is not merely about avoiding penalties — it's about creating an ethical, structured, and highly motivated workforce. Our evolution has mirrored the transformation of Indian labour laws, culminating in our unmatched expertise in the recent comprehensive Labour Law consolidation.
                 </p>
                 <p>
                   Today, we manage compliance for over 500 organizations, ranging from dynamic startups to Fortune 500 conglomerates, processing millions of data points annually while maintaining a pristine record of legal adherence.

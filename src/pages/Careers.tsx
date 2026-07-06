@@ -54,7 +54,7 @@ const Careers = () => {
 
       {/* ── Hero ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ minHeight: '420px' }}>
-        <img src="/assets/service-hr.png" alt="Careers at Labour Codes"
+        <img src="/assets/service-hr.png" alt="Careers at Labour Law"
           className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-900/85 via-navy-900/65 to-navy-900/25" />
         <div className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center py-20" style={{ minHeight: '420px' }}>
@@ -81,7 +81,7 @@ const Careers = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-12">
-            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Why Labour Codes</p>
+            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Why Labour Law</p>
             <h2 className="text-3xl font-display font-bold text-navy-900 mb-3">Build a Career That Matters</h2>
             <p className="text-gray-500 text-sm max-w-xl mx-auto">Every role here creates real impact — keeping Indian businesses compliant and workers protected.</p>
           </div>
@@ -117,7 +117,7 @@ const Careers = () => {
                   ? 'border-teal-500 text-teal-600'
                   : 'border-transparent text-gray-400 hover:text-gray-600'
               }`}>
-              Opportunities at Labour Codes ({internalJobs.length})
+              Opportunities at Labour Law ({internalJobs.length})
             </button>
             <button
               onClick={() => setActiveTab('client')}
@@ -133,7 +133,7 @@ const Careers = () => {
           {activeTab === 'internal' && (
             <div>
               <div className="mb-8">
-                <h2 className="text-2xl font-display font-bold text-navy-900 mb-2">Opportunities at Labour Codes</h2>
+                <h2 className="text-2xl font-display font-bold text-navy-900 mb-2">Opportunities at Labour Law</h2>
                 <p className="text-gray-500 text-sm">Build your career at one of India's most respected HR compliance advisory firms.</p>
               </div>
               <div className="space-y-4">
