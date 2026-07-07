@@ -276,7 +276,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
                 className="flex flex-col items-center text-center rounded-2xl p-9 lg:p-14"
-                style={{ backgroundColor: 'rgba(255,255,255,0.10)', backdropFilter: 'blur(4px)', border: '1px solid rgba(255,255,255,0.18)' }}>
+                style={{ backgroundColor: '#ffffff', border: '1px solid #e5e7eb' }}>
 
                 {/* Lottie animation — larger */}
                 <LottieAnim
@@ -285,14 +285,14 @@ const Home = () => {
                 />
 
                 {/* Title — single line */}
-                <h3 className="font-semibold text-white whitespace-nowrap mb-2"
+                <h3 className="font-semibold text-gray-900 whitespace-nowrap mb-2"
                   style={{ fontFamily: 'Poppins, sans-serif', fontSize: '0.95rem', lineHeight: 1.3 }}>
                   {item.title}
                 </h3>
 
                 {/* Desc — single line */}
                 <p className="whitespace-nowrap"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontSize: '0.78rem', fontWeight: 400, color: 'rgba(255,255,255,0.72)', lineHeight: 1.5 }}>
+                  style={{ fontFamily: 'Poppins, sans-serif', fontSize: '0.78rem', fontWeight: 400, color: '#6b7280', lineHeight: 1.5 }}>
                   {item.desc}
                 </p>
 
