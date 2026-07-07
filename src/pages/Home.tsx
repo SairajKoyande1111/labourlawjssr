@@ -264,10 +264,10 @@ const Home = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 lg:gap-6">
             {[
               { anim: animStatutory,       title: 'Statutory Registrations',       desc: 'ESI, EPF, Professional Tax' },
-              { anim: animLabourActs,      title: 'Core Labour Law Acts',           desc: 'Contract Labour, Gratuity, Bonus, Minimum Wages' },
-              { anim: animEstablishment,   title: 'Establishment & Factory',        desc: 'MLWF, Shops Act, Factories Act, audits' },
+              { anim: animLabourActs,      title: 'Core Labour Law Acts',           desc: 'Contract Labour, Gratuity, Bonus' },
+              { anim: animEstablishment,   title: 'Establishment & Factory',        desc: 'MLWF, Shops & Factories Act' },
               { anim: animPayrollPlanning, title: 'Payroll Planning & Processing',  desc: 'Manpower planning, salary structuring' },
-              { anim: animPayrollRecords,  title: 'Payroll Reports & Records',      desc: 'MIS, salary register, FNF, bank transfers' },
+              { anim: animPayrollRecords,  title: 'Payroll Reports & Records',      desc: 'MIS, salary register, FNF' },
               { anim: animHr,              title: 'HR Related Matters',             desc: 'Advisory and day-to-day support' },
             ].map((item, i) => (
               <motion.div key={i}
