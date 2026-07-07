@@ -266,7 +266,7 @@ const Home = () => {
               { anim: animStatutory,       title: 'Statutory Registrations',       desc: 'ESI, EPF, Professional Tax' },
               { anim: animLabourActs,      title: 'Core Labour Law Acts',           desc: 'Contract Labour, Gratuity, Bonus' },
               { anim: animEstablishment,   title: 'Establishment & Factory',        desc: 'MLWF, Shops & Factories Act' },
-              { anim: animPayrollPlanning, title: 'Payroll Processing & Planning',  desc: 'Manpower planning, salary structuring' },
+              { anim: animPayrollPlanning, title: 'Payroll Processing',  desc: 'Planning, salary structuring' },
               { anim: animPayrollRecords,  title: 'Payroll Reports & Records',      desc: 'MIS, salary register, FNF' },
               { anim: animHr,              title: 'HR Related Matters',             desc: 'Advisory and day-to-day support' },
             ].map((item, i) => (
