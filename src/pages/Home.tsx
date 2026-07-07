@@ -117,11 +117,11 @@ const Home = () => {
               variants={{ show: { transition: { staggerChildren: 0.13 } } }}>
 
               <motion.h1 variants={fadeUp}
-                className="font-semibold leading-[1.1] mb-6"
+                className="font-bold leading-[1.1] mb-6"
                 style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.4rem, 4.2vw, 3.6rem)' }}>
                 <span className="text-navy-900 block">We bring</span>
 
-                {/* Sliding amber phrase — clipped only vertically so long phrases stay on one line */}
+                {/* Sliding amber phrase */}
                 <span className="block" style={{ overflow: 'hidden', height: '1.2em' }}>
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -130,7 +130,7 @@ const Home = () => {
                       animate={{ y: '0%', opacity: 1 }}
                       exit={{ y: '-100%', opacity: 0 }}
                       transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
-                      className="block font-semibold"
+                      className="block font-bold"
                       style={{ color: '#fda102', whiteSpace: 'nowrap', fontSize: 'clamp(2rem, 3.6vw, 3rem)' }}>
                       {slidingPhrases[phraseIndex]}
                     </motion.span>
@@ -141,17 +141,17 @@ const Home = () => {
               </motion.h1>
 
               <motion.p variants={fadeUp}
-                className="text-gray-500 text-[15px] leading-relaxed mb-8 max-w-md"
-                style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}>
+                className="text-base leading-relaxed mb-8 max-w-md"
+                style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, color: '#444444' }}>
                 Unlock the potential of your business with our comprehensive HR and compliance solutions. From recruitment to payroll management to compliance, we provide tailored services that ensure your business runs smoothly, efficiently, and in full compliance with all regulations.
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-4 items-center">
                 <Link to="/contact"
-                  className="inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-full font-bold text-sm transition-all shadow-lg hover:scale-[1.02]"
-                  style={{ backgroundColor: '#a83a00' }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#a83a00'; }}>
+                  className="inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-full font-bold text-base transition-all shadow-lg hover:scale-[1.02]"
+                  style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#a83a00' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; (e.currentTarget as HTMLElement).style.color = '#111111'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#a83a00'; (e.currentTarget as HTMLElement).style.color = '#ffffff'; }}>
                   Get Started Today <ArrowRight size={15} />
                 </Link>
 
@@ -159,10 +159,10 @@ const Home = () => {
                 <div className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setServicesOpen(!servicesOpen)}
-                    className="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full font-bold text-sm transition-all shadow-lg"
-                    style={{ backgroundColor: '#a83a00' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#a83a00'; }}>
+                    className="inline-flex items-center gap-2 text-white px-7 py-3.5 rounded-full font-bold text-base transition-all shadow-lg"
+                    style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#a83a00' }}
+                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; (e.currentTarget as HTMLElement).style.color = '#111111'; }}
+                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#a83a00'; (e.currentTarget as HTMLElement).style.color = '#ffffff'; }}>
                     Our Services
                     <ChevronDown size={15} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
                   </button>
@@ -177,8 +177,11 @@ const Home = () => {
                           key={s.slug}
                           to={`/services/${s.slug}`}
                           onClick={() => setServicesOpen(false)}
-                          className="flex items-center gap-2.5 px-5 py-2.5 text-sm text-gray-700 hover:text-teal-600 hover:bg-teal-50 transition-colors font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0" />
+                          className="flex items-center gap-2.5 px-5 py-2.5 text-sm font-semibold transition-colors"
+                          style={{ fontFamily: 'Poppins, sans-serif', color: '#111111' }}
+                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#a83a00'; (e.currentTarget as HTMLElement).style.backgroundColor = '#fff7ed'; }}
+                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#111111'; (e.currentTarget as HTMLElement).style.backgroundColor = ''; }}>
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#fda102' }} />
                           {s.name}
                         </Link>
                       ))}

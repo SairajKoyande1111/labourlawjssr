@@ -81,8 +81,8 @@ const Layout = () => {
                 >
                   <Link
                     to={link.path}
-                    className="flex items-center gap-1 font-semibold text-[0.95rem] px-4 py-2.5 transition-colors duration-200"
-                    style={{ fontFamily: 'Poppins, sans-serif', color: highlighted ? '#fda102' : '#111111' }}
+                    className="flex items-center gap-1 font-bold text-[0.95rem] px-4 py-2.5 transition-colors duration-200"
+                    style={{ fontFamily: 'Poppins, sans-serif', color: highlighted ? '#a83a00' : '#111111' }}
                   >
                     {link.name}
                     <ChevronDown size={13} className="group-hover:rotate-180 transition-transform duration-200" />
@@ -90,7 +90,7 @@ const Layout = () => {
                   {/* Hover underline */}
                   <span
                     className="absolute bottom-1 left-4 right-4 h-[2px] transition-transform duration-300 pointer-events-none"
-                    style={{ backgroundColor: '#a83a00', transform: highlighted ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left' }}
+                    style={{ backgroundColor: '#fda102', transform: highlighted ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left' }}
                   />
                   <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-xl shadow-xl border border-gray-100 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     {serviceLinks.map((s) => (
@@ -113,15 +113,15 @@ const Layout = () => {
                 >
                   <Link
                     to={link.path}
-                    className="font-semibold text-[0.95rem] px-4 py-2.5 block transition-colors duration-200"
-                    style={{ fontFamily: 'Poppins, sans-serif', color: highlighted ? '#fda102' : '#111111' }}
+                    className="font-bold text-[0.95rem] px-4 py-2.5 block transition-colors duration-200"
+                    style={{ fontFamily: 'Poppins, sans-serif', color: highlighted ? '#a83a00' : '#111111' }}
                   >
                     {link.name}
                   </Link>
                   {/* Hover underline */}
                   <span
                     className="absolute bottom-1 left-4 right-4 h-[2px] transition-transform duration-300 pointer-events-none"
-                    style={{ backgroundColor: '#a83a00', transform: highlighted ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left' }}
+                    style={{ backgroundColor: '#fda102', transform: highlighted ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left' }}
                   />
                 </div>
               );
@@ -161,7 +161,8 @@ const Layout = () => {
                   transition={{ delay: i * 0.04 }}>
                   <Link
                     to={link.path}
-                    className={`block px-6 py-4 border-b border-gray-50 font-medium text-sm ${isActive(link.path) ? 'text-teal-600 bg-teal-50' : 'text-gray-700'}`}
+                    className="block px-6 py-4 border-b border-gray-100 font-bold text-sm transition-colors"
+                    style={{ fontFamily: 'Poppins, sans-serif', color: isActive(link.path) ? '#a83a00' : '#111111', backgroundColor: isActive(link.path) ? '#fff7ed' : '' }}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -170,7 +171,10 @@ const Layout = () => {
                     <div className="bg-gray-50">
                       {serviceLinks.map((s) => (
                         <Link key={s.slug} to={`/services/${s.slug}`}
-                          className="block pl-10 pr-6 py-3 border-b border-gray-100 text-xs font-medium text-gray-600 hover:text-teal-600 transition-colors"
+                          className="block pl-10 pr-6 py-3 border-b border-gray-100 text-xs font-semibold transition-colors"
+                          style={{ fontFamily: 'Poppins, sans-serif', color: '#444444' }}
+                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#a83a00'; }}
+                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#444444'; }}
                           onClick={() => setIsMenuOpen(false)}>
                           › {s.name}
                         </Link>
