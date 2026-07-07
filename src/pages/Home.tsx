@@ -120,7 +120,7 @@ const Home = () => {
 
               <motion.h1 variants={fadeUp}
                 className="font-semibold mb-6 flex flex-col"
-                style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(3rem, 5vw, 4.2rem)', gap: '0.18em', lineHeight: 1.1 }}>
+                style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2.4rem, 4.2vw, 3.6rem)', gap: '0.18em', lineHeight: 1.1 }}>
                 <span className="text-navy-900">We bring</span>
 
                 {/* Sliding amber phrase */}
@@ -139,7 +139,7 @@ const Home = () => {
                   </AnimatePresence>
                 </span>
 
-                <span className="text-navy-900">to your growth.</span>
+                <span className="text-navy-900">to your growth</span>
               </motion.h1>
 
               <motion.p variants={fadeUp}
@@ -158,39 +158,14 @@ const Home = () => {
                   Book a Consultation <ArrowRight size={15} />
                 </Link>
 
-                {/* Button 2: Compliance Solutions dropdown */}
-                <div className="relative" ref={dropdownRef}>
-                  <button
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-base transition-all shadow-lg"
-                    style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#ffffff', color: '#111111', border: '2px solid #fda102' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#ffffff'; }}>
-                    Compliance Solutions
-                    <ChevronDown size={15} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  {servicesOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.18 }}
-                      className="absolute left-0 top-full mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50">
-                      {servicesList.map((s) => (
-                        <Link
-                          key={s.slug}
-                          to={`/services/${s.slug}`}
-                          onClick={() => setServicesOpen(false)}
-                          className="flex items-center gap-2.5 px-5 py-2.5 text-sm font-semibold transition-colors"
-                          style={{ fontFamily: 'Poppins, sans-serif', color: '#111111' }}
-                          onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#a83a00'; (e.currentTarget as HTMLElement).style.backgroundColor = '#fff7ed'; }}
-                          onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#111111'; (e.currentTarget as HTMLElement).style.backgroundColor = ''; }}>
-                          <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: '#fda102' }} />
-                          {s.name}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </div>
+                {/* Button 2: Compliance Solutions → /services */}
+                <Link to="/services"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-base transition-all shadow-lg hover:scale-[1.02]"
+                  style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#ffffff', color: '#111111', border: '2px solid #fda102' }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; }}
+                  onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#ffffff'; }}>
+                  Compliance Solutions
+                </Link>
               </motion.div>
             </motion.div>
 

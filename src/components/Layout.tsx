@@ -130,7 +130,7 @@ const Layout = () => {
           <div className="hidden lg:flex items-center gap-3">
             <Link to="/contact"
               className="text-white px-7 py-2.5 rounded-full font-bold text-[0.9rem] transition-colors duration-200 shadow-sm whitespace-nowrap"
-              style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#a83a00' }}
+              style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#a83a00', border: '2px solid #fda102' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#a83a00'; }}>
               Contact Us
