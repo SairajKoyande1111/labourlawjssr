@@ -104,13 +104,13 @@ const Home = () => {
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: 'radial-gradient(circle, #e2e8f0 1px, transparent 1px)', backgroundSize: '28px 28px', opacity: 0.55 }} />
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-6 w-full">
           {/*
             Fixed grid — text col never squishes the collage col.
-            Text: 44% | Collage: 56%
+            Text: 50% | Collage: 50%
           */}
-          <div className="flex flex-col lg:grid lg:gap-10 items-center"
-            style={{ gridTemplateColumns: '44fr 56fr' }}>
+          <div className="flex flex-col lg:grid lg:gap-8 items-center"
+            style={{ gridTemplateColumns: '50fr 50fr' }}>
 
             {/* ── Left: Text Content ── */}
             <motion.div
@@ -124,8 +124,11 @@ const Home = () => {
                 <span className="text-navy-900 block" style={{ marginBottom: '0.2em' }}>We bring</span>
 
                 {/* Sliding amber phrase — absolutely positioned so its width never
-                    affects the grid column or button row layout */}
-                <span style={{ position: 'relative', display: 'block', height: '1.1em', overflow: 'hidden', marginBottom: '0.2em' }}>
+                    affects the grid column or button row layout.
+                    inset(0 -9999px 0 0) clips only top/bottom (slide animation)
+                    while extending the clipping region far to the right so even
+                    the longest phrase ("Labour Compliance") is never cut off. */}
+                <span style={{ position: 'relative', display: 'block', height: '1.1em', overflow: 'visible', clipPath: 'inset(0 -9999px 0 0)', marginBottom: '0.2em' }}>
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={phraseIndex}
@@ -145,24 +148,24 @@ const Home = () => {
 
               <motion.p variants={fadeUp}
                 className="text-base leading-relaxed mb-8 max-w-md"
-                style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, color: '#444444' }}>
+                style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, color: '#444444', textAlign: 'justify' }}>
                 Unlock the potential of your business with our comprehensive HR and compliance solutions. From recruitment to payroll management to compliance, we provide tailored services that ensure your business runs smoothly, efficiently, and in full compliance with all regulations.
               </motion.p>
 
-              <motion.div variants={fadeUp} className="flex flex-nowrap gap-3 items-center">
+              <motion.div variants={fadeUp} className="flex flex-nowrap gap-4 items-center">
                 {/* Button 1: Book a Consultation */}
                 <Link to="/contact"
-                  className="inline-flex items-center gap-2 text-white px-5 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:scale-[1.02] whitespace-nowrap"
-                  style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#a83a00', border: '2px solid #fda102' }}
+                  className="inline-flex items-center gap-2 text-white rounded-full transition-all shadow-lg hover:scale-[1.02] whitespace-nowrap"
+                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: '1rem', letterSpacing: '0.02em', padding: '0.85rem 1.75rem', backgroundColor: '#a83a00', border: '2px solid #fda102' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; (e.currentTarget as HTMLElement).style.color = '#111111'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#a83a00'; (e.currentTarget as HTMLElement).style.color = '#ffffff'; }}>
-                  Book a Consultation <ArrowRight size={14} />
+                  Book a Consultation <ArrowRight size={16} />
                 </Link>
 
                 {/* Button 2: Compliance Solutions → /services */}
                 <Link to="/services"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:scale-[1.02] whitespace-nowrap"
-                  style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#ffffff', color: '#111111', border: '2px solid #fda102' }}
+                  className="inline-flex items-center gap-2 rounded-full transition-all shadow-lg hover:scale-[1.02] whitespace-nowrap"
+                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 600, fontSize: '1rem', letterSpacing: '0.02em', padding: '0.85rem 1.75rem', backgroundColor: '#ffffff', color: '#111111', border: '2px solid #fda102' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#fda102'; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.backgroundColor = '#ffffff'; }}>
                   Compliance Solutions
@@ -187,7 +190,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}>
 
-              <div className="flex gap-3" style={{ height: '620px', paddingLeft: '6%' }}>
+              <div className="flex gap-3" style={{ height: '620px', paddingLeft: '2%' }}>
 
                 {/* ── Left column: one big tall portrait — VIDEO ── */}
                 <div className="flex flex-col" style={{ width: '58%' }}>
