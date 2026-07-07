@@ -294,83 +294,55 @@ const Home = () => {
               </div>
             </motion.div>
 
-            {/* ── Right: Text Content ── */}
+            {/* ── Right: Text Content — white card ── */}
             <div className="lg:w-[55%]">
               <motion.div initial={{ opacity: 0, x: 28 }} whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.6 }}>
+                viewport={{ once: true }} transition={{ duration: 0.6 }}
+                className="bg-white rounded-2xl p-8 lg:p-10 shadow-2xl">
 
-                {/* Eyebrow */}
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-[2px] bg-white" />
-                  <p className="font-semibold tracking-[0.2em] uppercase text-xs"
-                    style={{ fontFamily: 'Poppins, sans-serif', color: '#fda102' }}>Why Labour Law</p>
-                </div>
+                {/* Eyebrow — footer style */}
+                <p className="font-bold text-base uppercase tracking-wider mb-4"
+                  style={{ fontFamily: 'Poppins, sans-serif', color: '#a83a00' }}>Why Labour Law</p>
 
-                {/* Heading — lighter weight, smaller size */}
-                <h2 className="font-semibold text-white leading-[1.15] mb-4"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)' }}>
+                {/* Heading */}
+                <h2 className="font-bold leading-[1.15] mb-4"
+                  style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.5rem, 2.6vw, 2.1rem)', color: '#111111' }}>
                   Expertise that protects your business &amp; empowers your
-                  <span style={{ color: '#fda102' }}> workforce.</span>
+                  <span style={{ color: '#a83a00' }}> workforce.</span>
                 </h2>
 
-                <p className="text-white/75 mb-7 leading-relaxed text-sm"
-                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}>
+                <p className="mb-7 leading-relaxed text-base"
+                  style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, color: '#444444' }}>
                   We don't just file paperwork — we architect robust compliance frameworks. With India's labour law landscape shifting under the New Codes, you need a partner who anticipates regulatory changes before they impact your bottom line.
                 </p>
 
-                {/* Numbered feature rows — compact */}
-                <div className="space-y-0 mb-7">
+                {/* Numbered feature rows */}
+                <div className="space-y-0">
                   {whyUs.map((item, i) => (
                     <motion.div key={i}
                       initial={{ opacity: 0, x: 16 }} whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}
-                      className="flex gap-4 py-3.5 border-b border-white/20">
+                      className="flex gap-4 py-4 border-b border-gray-100">
                       <span className="font-bold shrink-0 leading-none mt-0.5 text-lg"
                         style={{ fontFamily: 'Poppins, sans-serif', color: '#fda102' }}>
                         {String(i + 1).padStart(2, '0')}
                       </span>
                       <div className="flex gap-3 items-start">
                         <div className="mt-0.5 w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
-                          style={{ backgroundColor: 'rgba(253,161,2,0.18)', color: '#fda102' }}>
+                          style={{ backgroundColor: 'rgba(168,58,0,0.08)', color: '#a83a00' }}>
                           <item.icon size={15} />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-white mb-0.5 text-sm"
-                            style={{ fontFamily: 'Poppins, sans-serif' }}>{item.title}</h4>
-                          <p className="text-white/65 text-xs leading-relaxed"
-                            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}>{item.desc}</p>
+                          <h4 className="font-semibold mb-0.5 text-sm"
+                            style={{ fontFamily: 'Poppins, sans-serif', color: '#111111' }}>{item.title}</h4>
+                          <p className="text-xs leading-relaxed"
+                            style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, color: '#666666' }}>{item.desc}</p>
                         </div>
                       </div>
                     </motion.div>
                   ))}
                 </div>
 
-                {/* Stats row — compact */}
-                <motion.div
-                  initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.25 }}
-                  className="grid grid-cols-4 gap-3 mb-7 p-4 rounded-xl border border-white/20"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-                  {[
-                    { num: '500+', label: 'Clients' },
-                    { num: '21+', label: 'Years' },
-                    { num: '50+', label: 'Experts' },
-                    { num: '15+', label: 'States' },
-                  ].map((s, i) => (
-                    <div key={i} className="text-center">
-                      <p className="font-bold leading-none mb-0.5 text-xl"
-                        style={{ fontFamily: 'Poppins, sans-serif', color: '#fda102' }}>{s.num}</p>
-                      <p className="text-white/65 text-[10px] font-medium"
-                        style={{ fontFamily: 'Poppins, sans-serif' }}>{s.label}</p>
-                    </div>
-                  ))}
-                </motion.div>
-
-                <Link to="/about"
-                  className="inline-flex items-center gap-2 text-white px-7 py-3 rounded-full font-semibold text-sm transition-all hover:opacity-90 hover:scale-[1.02] shadow-lg"
-                  style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#fda102', color: '#1a1a1a' }}>
-                  Learn Our Story <ArrowRight size={14} />
-                </Link>
               </motion.div>
             </div>
 
