@@ -584,13 +584,13 @@ const Home = () => {
 
       {/* ── CTA Banner ────────────────────────────────────── */}
       <section className="py-0 overflow-hidden" style={{ backgroundColor: '#a83a00' }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch">
+        <div className="w-full flex flex-col md:flex-row items-stretch">
 
           {/* Left — text content */}
           <motion.div
             initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.55 }}
-            className="flex-1 flex flex-col justify-center px-10 py-16 lg:px-16 lg:py-20">
+            className="md:w-1/2 flex flex-col justify-center px-10 py-16 lg:px-16 lg:py-20">
             <h2
               className="font-bold text-white mb-5 leading-tight"
               style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}>
