@@ -349,45 +349,73 @@ const Home = () => {
       </section>
 
       {/* ── Services Preview ──────────────────────────────── */}
-      <section className="py-20 bg-[#f8fafb]">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-14 max-w-2xl mx-auto">
-            <p className="text-teal-500 font-bold tracking-[0.18em] uppercase text-xs mb-3">Our Expertise</p>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-navy-900 mb-4">Comprehensive Compliance Solutions</h2>
-            <p className="text-gray-500 text-sm leading-relaxed">Strategic guidance across the entire spectrum of Indian labour laws and human resource management.</p>
+
+          {/* Header */}
+          <div className="text-center mb-12 max-w-2xl mx-auto">
+            <p className="font-semibold tracking-[0.2em] uppercase text-xs mb-3"
+              style={{ fontFamily: 'Poppins, sans-serif', color: '#a83a00' }}>Our Expertise</p>
+            <h2 className="font-bold text-navy-900 mb-3"
+              style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.6rem, 2.8vw, 2.2rem)' }}>
+              Comprehensive Compliance Solutions
+            </h2>
+            <p className="text-gray-500 text-sm leading-relaxed"
+              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}>
+              Strategic guidance across the entire spectrum of Indian labour laws and human resource management.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+
+          {/* 8-card grid — 4 columns × 2 rows */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Labour Law Compliance', img: '/assets/service-labour.png', slug: 'labour-law-compliance', desc: 'End-to-end compliance with all applicable central and state labour legislation, shielding your business from penal consequences.' },
-              { title: 'Payroll & Salary Structuring', img: '/assets/service-payroll.png', slug: 'payroll-structuring', desc: 'Payroll processing and salary structure auditing fully optimized for the new Labour Code definitions of wages.' },
-              { title: 'Statutory Filings', img: '/assets/service-statutory.png', slug: 'statutory-filings', desc: 'PF, ESIC, PT, LWF, TDS management with regular returns and on-time statutory filings.' },
+              { title: 'Labour Law Compliance',       img: '/assets/service-labour.png',    slug: 'labour-law-compliance',    desc: 'End-to-end compliance with central and state labour legislation, shielding your business from penal consequences.' },
+              { title: 'Payroll & Salary Structuring', img: '/assets/service-payroll.png',   slug: 'payroll-structuring',       desc: 'Payroll processing and salary structure auditing optimised for the New Labour Code definitions of wages.' },
+              { title: 'Statutory Filings',            img: '/assets/service-statutory.png', slug: 'statutory-filings',         desc: 'PF, ESIC, PT, LWF and TDS management with regular returns and on-time statutory filings.' },
+              { title: 'People Outsourcing & Staffing',img: '/assets/service-staffing.png',  slug: 'contract-staffing',         desc: 'Flexible contract staffing, third-party payroll and managed workforce solutions across industries.' },
+              { title: 'Audits & Governance',          img: '/assets/service-audits.png',    slug: 'audits-governance',         desc: 'Comprehensive compliance audits identifying gaps and recommending corrective governance measures.' },
+              { title: 'Registrations & Licensing',    img: '/assets/service-licensing.png', slug: 'registrations-licensing',   desc: 'Factory, shop, labour contractor and trade licence registrations handled end-to-end.' },
+              { title: 'HR Policy & Advisory',         img: '/assets/service-hr.png',        slug: 'hr-policy-advisory',        desc: 'Custom HR policy design, standing orders and advisory aligned with current labour law mandates.' },
+              { title: 'Legal Representation',         img: '/assets/service-legal.png',     slug: 'litigation-support',        desc: 'Skilled representation before labour authorities, tribunals and conciliation boards across states.' },
             ].map((service, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.1 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 group overflow-hidden flex flex-col">
-                <div className="h-48 overflow-hidden relative">
+                viewport={{ once: true }} transition={{ duration: 0.4, delay: (i % 4) * 0.08 }}
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group overflow-hidden flex flex-col">
+
+                {/* Image */}
+                <div className="h-40 overflow-hidden relative shrink-0">
                   <img src={service.img} alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
-                <div className="p-7 flex-grow flex flex-col">
-                  <h3 className="text-lg font-display font-bold text-navy-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-500 mb-6 flex-grow text-sm leading-relaxed">{service.desc}</p>
+
+                {/* Body */}
+                <div className="p-5 flex-grow flex flex-col">
+                  <h3 className="font-semibold text-navy-900 mb-2 leading-snug text-[0.9rem]"
+                    style={{ fontFamily: 'Poppins, sans-serif' }}>{service.title}</h3>
+                  <p className="text-gray-500 text-xs leading-relaxed flex-grow mb-4"
+                    style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}>{service.desc}</p>
                   <Link to={`/services/${service.slug}`}
-                    className="text-teal-600 font-bold text-sm flex items-center gap-1 group-hover:gap-2.5 transition-all mt-auto">
-                    Explore Details <ChevronRight size={14} />
+                    className="inline-flex items-center gap-1 text-xs font-semibold mt-auto group-hover:gap-2 transition-all"
+                    style={{ fontFamily: 'Poppins, sans-serif', color: '#a83a00' }}>
+                    Explore Details <ChevronRight size={13} />
                   </Link>
                 </div>
+
               </motion.div>
             ))}
           </div>
+
+          {/* CTA */}
           <div className="text-center mt-10">
             <Link to="/services"
-              className="inline-flex items-center gap-2 bg-navy-900 text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-teal-600 transition-colors shadow-md">
-              View All 9 Services <ArrowRight size={16} />
+              className="inline-flex items-center gap-2 text-white px-8 py-3.5 rounded-full font-semibold text-sm transition-all hover:opacity-90 hover:scale-[1.02] shadow-md"
+              style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#a83a00' }}>
+              View All Services <ArrowRight size={15} />
             </Link>
           </div>
+
         </div>
       </section>
 
