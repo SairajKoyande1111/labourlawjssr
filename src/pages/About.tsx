@@ -44,6 +44,34 @@ const STORY_SLIDES = [
   },
 ];
 
+const CountUpStat = ({ value, label }: { value: string; label: string }) => {
+  const numeric = parseInt(value, 10);
+  const suffix = value.replace(/^[0-9]+/, '');
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 1400;
+    const start = performance.now();
+    let frame: number;
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * numeric));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [numeric]);
+
+  return (
+    <div>
+      <p className="font-medium text-3xl text-white" style={{ fontFamily: PP }}>{count}{suffix}</p>
+      <p className="text-[10px] uppercase tracking-widest mt-0.5"
+        style={{ fontFamily: PP, color: 'rgba(255,255,255,0.55)' }}>{label}</p>
+    </div>
+  );
+};
+
 const OFFICE_IMAGES = [
   '/assets/hero-office.png',
   '/assets/service-audits.png',
@@ -186,7 +214,7 @@ const About = () => {
               Partner.
             </motion.h1>
 
-            <motion.p className="text-base leading-[1.85] max-w-[460px]"
+            <motion.p className="text-base leading-[1.85] max-w-[460px] mb-8"
               style={{ fontFamily: PP, color: 'rgba(255,255,255,0.7)' }}
               initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.26 }}>
@@ -204,9 +232,7 @@ const About = () => {
             {[['500+','Corporate Clients'], ['21+','Years'], ['15+','States']].map(([n, l], i) => (
               <div key={i} className="flex flex-col items-center justify-center py-5 px-2"
                 style={{ backgroundColor: i === 1 ? 'rgba(253,161,2,0.20)' : 'rgba(0,0,0,0.15)' }}>
-                <p className="font-bold text-2xl text-white" style={{ fontFamily: PP }}>{n}</p>
-                <p className="text-[10px] uppercase tracking-widest mt-0.5"
-                  style={{ fontFamily: PP, color: 'rgba(255,255,255,0.55)' }}>{l}</p>
+                <CountUpStat value={n} label={l} />
               </div>
             ))}
           </motion.div>
