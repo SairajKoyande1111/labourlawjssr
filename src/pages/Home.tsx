@@ -351,9 +351,9 @@ const Home = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}>
-              <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl">
+              <div className="bg-white rounded-2xl pt-5 pb-8 px-8 lg:pt-6 lg:pb-12 lg:px-12 shadow-xl">
 
-                <img src={maruLogo} alt="Maru Consultancy Services" className="h-16 w-auto object-contain mb-6 mx-auto block" />
+                <img src={maruLogo} alt="Maru Consultancy Services" className="h-20 w-auto object-contain mb-5 mx-auto block" />
                 <h2 className="font-bold leading-[1.2] mb-5"
                   style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.4rem, 2.4vw, 2rem)', color: '#111111' }}>
                   Expertise that protects your business &amp; empowers your
