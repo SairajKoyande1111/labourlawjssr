@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, FileText, Phone, ChevronRight, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const PP = 'Poppins, sans-serif';
+
 const serviceDetails: Record<string, {
   headline: string;
   subhead: string;
@@ -107,7 +109,7 @@ const serviceDetails: Record<string, {
     headline: 'Expert Legal Representation in Labour Disputes.',
     subhead: 'Legal Representation Services',
     intro: 'Labour court representation, conciliation proceedings, and robust litigation support across India.',
-    body: 'Labour disputes — whether from individual employees, trade unions, or regulatory authorities — can be extremely costly and time-consuming. Expert legal representation at the right stage can significantly alter outcomes and protect your organization\'s reputation.\n\nOur panel of experienced labour law advocates represents employers before Labour Courts, Industrial Tribunals, High Courts, and in conciliation proceedings before the Conciliation Officer, providing the strongest possible defense and most favorable settlements.',
+    body: "Labour disputes — whether from individual employees, trade unions, or regulatory authorities — can be extremely costly and time-consuming. Expert legal representation at the right stage can significantly alter outcomes and protect your organization's reputation.\n\nOur panel of experienced labour law advocates represents employers before Labour Courts, Industrial Tribunals, High Courts, and in conciliation proceedings before the Conciliation Officer, providing the strongest possible defense and most favorable settlements.",
     deliverables: ['Labour Court Representation', 'Industrial Tribunal Cases', 'Conciliation Proceedings', 'Inquiry Officer Services', 'Legal Opinions', 'Domestic Enquiry Management'],
     related: [
       { name: 'Audits & Governance', slug: 'audits-governance' },
@@ -145,53 +147,83 @@ const otherServices = [
 const ServiceDetail = () => {
   const { slug } = useParams();
   const detail = serviceDetails[slug || ''];
-  const title = slug?.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') || 'Service';
+  const title = slug?.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ') || 'Service';
 
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ fontFamily: PP }}>
 
       {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: '400px' }}>
-        <img src={detail?.img || '/assets/service-labour.png'} alt={title}
-          className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/85 via-navy-900/65 to-navy-900/20" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center py-16" style={{ minHeight: '400px' }}>
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55 }}
-            className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl max-w-lg">
-            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">
-              {detail?.subhead || 'Our Services'}
-            </p>
-            <h1 className="text-2xl md:text-3xl font-display font-bold text-navy-900 mb-4 leading-snug">
-              {detail?.headline || title}
-            </h1>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">{detail?.intro}</p>
-            <nav className="flex items-center gap-2 text-xs font-semibold flex-wrap">
-              <Link to="/" className="bg-navy-900 text-white px-3 py-1.5 rounded-lg hover:bg-teal-600 transition-colors">Home</Link>
-              <span className="text-gray-300">›</span>
-              <Link to="/services" className="text-gray-500 hover:text-teal-600 transition-colors">Services</Link>
-              <span className="text-gray-300">›</span>
-              <span className="text-teal-600">{title}</span>
-            </nav>
-          </motion.div>
-        </div>
+      <section
+        className="relative overflow-hidden flex items-center justify-center"
+        style={{ height: '50vh', minHeight: '240px', maxHeight: '380px' }}>
+        {/* Background image */}
+        <img
+          src={detail?.img || '/assets/service-labour.png'}
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center center' }}
+        />
+        {/* Dark tint */}
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.54)' }} />
+
+        {/* Centered text */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+          <p
+            className="uppercase tracking-[0.3em] font-semibold mb-3"
+            style={{ fontFamily: PP, fontSize: '0.7rem', color: '#fda102' }}>
+            {detail?.subhead || 'Our Services'}
+          </p>
+          <h1
+            className="uppercase leading-[1.1] mb-4"
+            style={{
+              fontFamily: PP,
+              fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)',
+              fontWeight: 700,
+              letterSpacing: '0.04em',
+              color: '#ffffff',
+            }}>
+            {detail?.headline || title}
+          </h1>
+          <p
+            className="leading-relaxed mx-auto"
+            style={{
+              fontFamily: PP,
+              fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
+              fontWeight: 300,
+              color: 'rgba(255,255,255,0.80)',
+              maxWidth: '520px',
+            }}>
+            {detail?.intro}
+          </p>
+        </motion.div>
       </section>
 
       {/* ── Breadcrumb bar ────────────────────────────────── */}
       <div className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-3.5">
-          <Link to="/services"
-            className="inline-flex items-center gap-2 text-sm font-medium text-teal-600 hover:text-navy-900 transition-colors">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-3.5 flex items-center gap-3 text-sm" style={{ fontFamily: PP }}>
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-1.5 font-medium transition-colors"
+            style={{ color: '#a83a00' }}>
             <ArrowLeft size={14} /> Back to All Services
           </Link>
+          <span className="text-gray-300">|</span>
+          <Link to="/" className="text-gray-400 hover:text-gray-600 transition-colors font-light">Home</Link>
+          <span className="text-gray-300">›</span>
+          <Link to="/services" className="text-gray-400 hover:text-gray-600 transition-colors font-light">Services</Link>
+          <span className="text-gray-300">›</span>
+          <span style={{ color: '#fda102' }} className="font-medium">{title}</span>
         </div>
       </div>
 
       {/* ── Main Content ──────────────────────────────────── */}
-      <section className="py-16 bg-[#f8fafb]">
+      <section className="py-14 bg-[#f8fafb]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row gap-10">
 
-          {/* Body */}
+          {/* ── Body column ─────────────────────────────── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -205,7 +237,9 @@ const ServiceDetail = () => {
                     initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="rounded-2xl overflow-hidden shadow-md aspect-[4/3]">
-                    <img src={detail?.img || '/assets/service-labour.png'} alt={title}
+                    <img
+                      src={detail?.img || '/assets/service-labour.png'}
+                      alt={title}
                       className="w-full h-full object-cover" />
                   </motion.div>
                 </div>
@@ -215,38 +249,57 @@ const ServiceDetail = () => {
                       key={i}
                       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: 0.15 + i * 0.08 }}
-                      className="text-gray-600 leading-relaxed mb-4 text-[15px]">{para}</motion.p>
+                      className="text-gray-600 leading-relaxed mb-4 font-light"
+                      style={{ fontFamily: PP, fontSize: '0.95rem' }}>
+                      {para}
+                    </motion.p>
                   ))}
                 </div>
               </div>
 
               {/* Key Deliverables */}
-              <h3 className="text-xl font-display font-bold text-navy-900 mb-5">Key Deliverables</h3>
+              <h3
+                className="font-bold mb-5"
+                style={{ fontFamily: PP, fontSize: '1.25rem', color: '#111' }}>
+                Key Deliverables
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-                {(detail?.deliverables || ['Comprehensive Compliance Audits', 'Statutory Register Maintenance', 'Risk Assessment', 'Government Liaison', 'Regulatory Updates', 'Documentation']).map((item, i) => (
+                {(detail?.deliverables || []).map((item, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.35, delay: i * 0.06 }}
-                    className="flex items-start gap-3 bg-[#f8fafb] p-4 rounded-xl border border-gray-100">
-                    <CheckCircle className="text-teal-500 shrink-0 mt-0.5" size={17} />
-                    <span className="font-semibold text-navy-900 text-sm">{item}</span>
+                    className="flex items-start gap-3 p-4 rounded-xl border border-gray-100"
+                    style={{ backgroundColor: '#fdf7f0' }}>
+                    <CheckCircle className="shrink-0 mt-0.5" size={17} style={{ color: '#a83a00' }} />
+                    <span className="font-medium text-sm" style={{ fontFamily: PP, color: '#222' }}>{item}</span>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Related */}
+              {/* Related Services */}
               {detail?.related && (
                 <>
-                  <h3 className="text-base font-bold text-navy-900 mb-4 mt-2">Related Services</h3>
+                  <h3
+                    className="font-bold mb-4 mt-2"
+                    style={{ fontFamily: PP, fontSize: '1rem', color: '#111' }}>
+                    Related Services
+                  </h3>
                   <div className="flex flex-wrap gap-3">
                     {detail.related.map((r, i) => (
                       <motion.div
                         key={i}
                         initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.07 }}>
-                        <Link to={`/services/${r.slug}`}
-                          className="inline-flex items-center gap-2 text-sm font-semibold text-teal-600 bg-teal-50 hover:bg-teal-100 px-4 py-2 rounded-full transition-colors border border-teal-100">
+                        <Link
+                          to={`/services/${r.slug}`}
+                          className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full transition-colors border"
+                          style={{
+                            fontFamily: PP,
+                            color: '#a83a00',
+                            backgroundColor: 'rgba(168,58,0,0.07)',
+                            borderColor: 'rgba(168,58,0,0.18)',
+                          }}>
                           <ChevronRight size={13} /> {r.name}
                         </Link>
                       </motion.div>
@@ -257,23 +310,36 @@ const ServiceDetail = () => {
             </div>
           </motion.div>
 
-          {/* Sidebar */}
+          {/* ── Sidebar ─────────────────────────────────── */}
           <div className="lg:w-1/3">
             <div className="sticky top-28 space-y-6">
+
               {/* CTA Card */}
               <motion.div
                 initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
                 className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-                <h3 className="text-lg font-display font-bold text-navy-900 mb-3">Ready to secure your compliance?</h3>
-                <p className="text-gray-500 text-sm mb-6 leading-relaxed">Speak directly with our legal experts to discuss how this service applies to your specific industry and workforce size.</p>
+                <h3
+                  className="font-bold mb-3"
+                  style={{ fontFamily: PP, fontSize: '1.1rem', color: '#111' }}>
+                  Ready to secure your compliance?
+                </h3>
+                <p
+                  className="text-gray-500 text-sm mb-6 leading-relaxed font-light"
+                  style={{ fontFamily: PP }}>
+                  Speak directly with our legal experts to discuss how this service applies to your specific industry and workforce size.
+                </p>
                 <div className="space-y-3">
-                  <Link to="/contact"
-                    className="w-full bg-navy-900 text-white py-3.5 rounded-xl font-bold text-sm hover:bg-teal-600 transition-colors flex items-center justify-center gap-2 shadow-md">
+                  <Link
+                    to="/contact"
+                    className="w-full text-white py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 shadow-md transition-opacity hover:opacity-90"
+                    style={{ backgroundColor: '#a83a00', fontFamily: PP }}>
                     <FileText size={15} /> Request Proposal
                   </Link>
-                  <a href="tel:+919876543210"
-                    className="w-full bg-white text-navy-900 border-2 border-navy-900 py-3.5 rounded-xl font-bold text-sm hover:bg-teal-50 hover:border-teal-600 hover:text-teal-600 transition-colors flex items-center justify-center gap-2">
+                  <a
+                    href="tel:+919876543210"
+                    className="w-full py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 border-2 transition-opacity hover:opacity-80"
+                    style={{ fontFamily: PP, color: '#a83a00', borderColor: '#a83a00', backgroundColor: 'transparent' }}>
                     <Phone size={15} /> Call Now
                   </a>
                 </div>
@@ -284,13 +350,21 @@ const ServiceDetail = () => {
                 initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
                 className="bg-white p-7 rounded-2xl border border-gray-100 shadow-sm">
-                <h4 className="font-bold text-navy-900 mb-5 text-xs uppercase tracking-wider">Other Services</h4>
+                <h4
+                  className="font-bold mb-5 uppercase tracking-wider text-xs"
+                  style={{ fontFamily: PP, color: '#a83a00' }}>
+                  Other Services
+                </h4>
                 <ul className="space-y-1">
                   {otherServices.filter(s => s.slug !== slug).map((s, i) => (
                     <li key={i}>
-                      <Link to={`/services/${s.slug}`}
-                        className="flex items-center gap-2.5 text-sm text-gray-600 hover:text-teal-600 transition-colors py-2 border-b border-gray-50 last:border-0 font-medium">
-                        <span className="w-1.5 h-1.5 rounded-full bg-teal-400 shrink-0"></span>
+                      <Link
+                        to={`/services/${s.slug}`}
+                        className="flex items-center gap-2.5 text-sm py-2 border-b border-gray-50 last:border-0 font-medium transition-colors hover:opacity-70"
+                        style={{ fontFamily: PP, color: '#333' }}>
+                        <span
+                          className="w-1.5 h-1.5 rounded-full shrink-0"
+                          style={{ backgroundColor: '#fda102' }} />
                         {s.name}
                       </Link>
                     </li>
@@ -302,14 +376,26 @@ const ServiceDetail = () => {
               <motion.div
                 initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.35 }}
-                className="bg-navy-900 text-white p-7 rounded-2xl">
-                <p className="text-teal-400 font-bold text-[10px] uppercase tracking-wider mb-3">Working Hours</p>
-                <p className="text-white/70 text-sm mb-5">Mon – Fri: 9:30 AM – 6:30 PM<br />Sat & Sun: Closed</p>
-                <a href="mailto:contact@labourcodes.in"
-                  className="text-teal-400 text-sm font-semibold hover:text-white transition-colors flex items-center gap-2">
+                className="text-white p-7 rounded-2xl"
+                style={{ backgroundColor: '#a83a00' }}>
+                <p
+                  className="font-bold uppercase tracking-wider mb-3"
+                  style={{ fontFamily: PP, fontSize: '0.65rem', color: '#fda102' }}>
+                  Working Hours
+                </p>
+                <p
+                  className="text-sm mb-5 font-light leading-relaxed"
+                  style={{ fontFamily: PP, color: 'rgba(255,255,255,0.75)' }}>
+                  Mon – Fri: 9:30 AM – 6:30 PM<br />Sat & Sun: Closed
+                </p>
+                <a
+                  href="mailto:contact@labourcodes.in"
+                  className="text-sm font-semibold flex items-center gap-2 transition-opacity hover:opacity-80"
+                  style={{ fontFamily: PP, color: '#fda102' }}>
                   <ArrowRight size={13} /> contact@labourcodes.in
                 </a>
               </motion.div>
+
             </div>
           </div>
         </div>
