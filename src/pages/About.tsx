@@ -260,28 +260,27 @@ const About = () => {
       {/* ══════════════════════════════════════════════════════
           4. BIG PULL QUOTE
          ══════════════════════════════════════════════════════ */}
-      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#111111' }}>
+      <section id="pull-quote" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#a83a00' }}>
         <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden">
-          <p className="font-bold text-white opacity-[0.03]"
-            style={{ fontFamily: PP, fontSize: 'clamp(8rem, 22vw, 22rem)', whiteSpace: 'nowrap', lineHeight: 1 }}>
-            MARU
+          <p className="font-bold text-white opacity-[0.08] text-center whitespace-nowrap"
+            style={{ fontFamily: PP, fontSize: 'clamp(1.6rem, 6vw, 8rem)', lineHeight: 1, letterSpacing: '0.03em' }}>
+            MARU CONSULTANCY SERVICES
           </p>
         </div>
-        <div className="relative max-w-5xl mx-auto px-8 lg:px-16 text-center">
-          <div className="text-5xl mb-6" style={{ color: '#fda102', lineHeight: 1 }}>"</div>
+        <div className="relative max-w-[1400px] mx-auto px-8 lg:px-16 text-center">
           <motion.p className="font-bold text-white leading-[1.2] mb-8"
-            style={{ fontFamily: PP, fontSize: 'clamp(1.5rem, 3.5vw, 3rem)' }}
+            style={{ fontFamily: PP, fontSize: 'clamp(2rem, 5vw, 4.2rem)' }}
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            Compliance is not a checkbox.<br />
+            Compliance is not a checkbox<br />
             It's the foundation on which<br />
-            <span style={{ color: '#fda102' }}>every great business is built.</span>
+            <span style={{ color: '#fda102' }}>every great business is built</span>
           </motion.p>
-          <motion.p className="font-semibold text-sm uppercase tracking-widest"
-            style={{ fontFamily: PP, color: 'rgba(255,255,255,0.4)' }}
+          <motion.p className="font-semibold uppercase tracking-widest"
+            style={{ fontFamily: PP, color: 'rgba(255,255,255,0.85)', fontSize: '1.05rem' }}
             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
-            — Deepak Maru, Founder & Managing Partner
+            Deepak Maru, Founder & Managing Partner
           </motion.p>
         </div>
       </section>
