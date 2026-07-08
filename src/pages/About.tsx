@@ -262,8 +262,8 @@ const About = () => {
          ══════════════════════════════════════════════════════ */}
       <section id="pull-quote" className="py-10 relative overflow-hidden" style={{ backgroundColor: '#a83a00' }}>
         <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden px-3 lg:px-4">
-          <p className="font-bold text-white opacity-[0.08] text-center whitespace-nowrap"
-            style={{ fontFamily: PP, fontSize: 'clamp(2rem, 8.2vw, 9.5rem)', lineHeight: 1.05, letterSpacing: '0.01em' }}>
+          <p className="font-bold text-white opacity-[0.14] text-center whitespace-nowrap"
+            style={{ fontFamily: PP, fontSize: 'clamp(2.2rem, 9vw, 10.5rem)', lineHeight: 1.05, letterSpacing: '0.01em' }}>
             MARU CONSULTANCY<br />SERVICES
           </p>
         </div>
