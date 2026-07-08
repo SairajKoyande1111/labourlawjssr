@@ -261,13 +261,13 @@ const About = () => {
           4. BIG PULL QUOTE
          ══════════════════════════════════════════════════════ */}
       <section id="pull-quote" className="py-10 relative overflow-hidden" style={{ backgroundColor: '#a83a00' }}>
-        <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-center overflow-hidden px-6 lg:px-12">
           <p className="font-bold text-white opacity-[0.08] text-center whitespace-nowrap"
             style={{ fontFamily: PP, fontSize: 'clamp(2.5rem, 9vw, 11rem)', lineHeight: 1.05, letterSpacing: '0.03em' }}>
             MARU CONSULTANCY<br />SERVICES
           </p>
         </div>
-        <div className="relative max-w-[1400px] mx-auto px-8 lg:px-16 text-center">
+        <div className="relative max-w-[1400px] mx-auto px-10 lg:px-20 text-center">
           <motion.div className="font-bold text-white mb-8 flex flex-col items-center"
             style={{ fontFamily: PP, fontSize: 'clamp(2rem, 5vw, 4.2rem)' }}
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
