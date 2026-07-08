@@ -396,7 +396,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
           {/* Centered top logo */}
-          <motion.div className="flex justify-center mb-12"
+          <motion.div className="flex justify-center mb-3"
             initial={{ opacity: 0, y: -16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5 }}>
             <img src="/assets/maru-logo-full.png" alt="Maru Consultancy Services"
