@@ -289,18 +289,18 @@ const About = () => {
       {/* ══════════════════════════════════════════════════════
           5. CORE VALUES — Poster image cards with overlays
          ══════════════════════════════════════════════════════ */}
-      <section id="core-values" className="py-20 bg-white">
+      <section id="core-values" className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <motion.div className="flex justify-center mb-4"
+          <motion.div className="flex justify-center mb-1"
             initial={{ opacity: 0, y: -16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.5 }}>
             <div className="flex items-center gap-4">
               <div className="w-8 h-0.5" style={{ backgroundColor: '#fda102' }} />
-              <p className="font-bold text-sm uppercase tracking-[0.25em]" style={{ fontFamily: PP, color: '#a83a00', fontSize: '1rem' }}>What Drives Us</p>
+              <p className="font-bold uppercase tracking-[0.25em]" style={{ fontFamily: PP, color: '#a83a00', fontSize: '1.25rem' }}>What Drives Us</p>
               <div className="w-8 h-0.5" style={{ backgroundColor: '#fda102' }} />
             </div>
           </motion.div>
-          <motion.h2 className="font-bold text-center mb-12" style={{ fontFamily: PP, fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)', color: '#111' }}
+          <motion.h2 className="font-bold text-center mb-8" style={{ fontFamily: PP, fontSize: 'clamp(2rem, 3.6vw, 3.1rem)', color: '#111' }}
             initial={{ opacity: 0, y: -16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.5, delay: 0.1 }}>
             Our Core Values
