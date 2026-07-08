@@ -1,4 +1,5 @@
 
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -18,32 +19,60 @@ const services = [
 ];
 
 const Services = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq.matches && videoRef.current) {
+      videoRef.current.pause();
+    }
+    const handler = (e: MediaQueryListEvent) => {
+      if (e.matches) videoRef.current?.pause();
+      else videoRef.current?.play();
+    };
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
   return (
     <div className="w-full" style={{ fontFamily: PP }}>
 
       {/* ── Page Hero ─────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: '400px' }}>
-        <img src="/assets/service-labour.png" alt="Our Services"
-          className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(168,58,0,0.9) 0%, rgba(168,58,0,0.55) 45%, rgba(168,58,0,0.1) 100%)' }} />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center py-16" style={{ minHeight: '400px' }}>
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55 }}
-            className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl max-w-md">
-            <p className="font-semibold text-[11px] uppercase tracking-[0.24em] mb-3" style={{ fontFamily: PP, color: '#a83a00' }}>What We Offer</p>
-            <h1 className="font-light leading-[1.2] mb-4" style={{ fontFamily: PP, fontSize: 'clamp(1.7rem, 2.6vw, 2.2rem)', color: '#111' }}>
-              Comprehensive Compliance Solutions for Indian Businesses
-            </h1>
-            <p className="text-gray-500 text-base font-light leading-relaxed mb-6" style={{ fontFamily: PP }}>
-              Tailored to meet the exacting and evolving regulatory demands across all industries and scales of business.
-            </p>
-            <nav className="flex items-center gap-2 text-sm font-medium" style={{ fontFamily: PP }}>
-              <Link to="/" className="text-white px-3 py-1.5 rounded-lg transition-colors" style={{ backgroundColor: '#a83a00' }}>Home</Link>
-              <span className="text-gray-300">›</span>
-              <span style={{ color: '#fda102' }}>Services</span>
-            </nav>
-          </motion.div>
-        </div>
+      <section className="relative overflow-hidden flex items-center justify-center" style={{ height: '50vh', minHeight: '240px', maxHeight: '380px' }}>
+        {/* Background video — decorative, hidden from screen readers */}
+        <video
+          ref={videoRef}
+          src="/assets/services-hero.mp4"
+          autoPlay muted loop playsInline
+          preload="metadata"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Dark tint overlay */}
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.52)' }} />
+        {/* Centered text */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 text-center px-6">
+          <p className="uppercase tracking-[0.32em] text-[11px] font-semibold mb-3" style={{ fontFamily: PP, color: '#fda102' }}>
+            Maru Consultancy Services
+          </p>
+          <h1
+            className="uppercase leading-[1.1] mb-4"
+            style={{
+              fontFamily: PP,
+              fontSize: 'clamp(2rem, 5vw, 3.6rem)',
+              fontWeight: 300,
+              letterSpacing: '0.06em',
+              color: '#ffffff',
+            }}>
+            Our <span style={{ color: '#fda102', fontWeight: 600 }}>Consultancy</span> Services
+          </h1>
+          <p className="font-light leading-relaxed mx-auto" style={{ fontFamily: PP, fontSize: 'clamp(0.9rem, 1.6vw, 1.1rem)', color: 'rgba(255,255,255,0.78)', maxWidth: '520px' }}>
+            Precision-crafted compliance solutions that protect your workforce, your business, and your future.
+          </p>
+        </motion.div>
       </section>
 
       {/* ── Services Grid ─────────────────────────────────── */}
