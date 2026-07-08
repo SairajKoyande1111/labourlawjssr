@@ -353,9 +353,7 @@ const Home = () => {
               transition={{ duration: 0.6 }}>
               <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl">
 
-                <img src={maruLogo} alt="Maru Consultancy Services" className="h-10 w-auto object-contain mb-4" />
-                <p className="font-bold text-sm uppercase tracking-widest mb-4"
-                  style={{ fontFamily: 'Poppins, sans-serif', color: '#a83a00' }}>Why Maru Consultancy Services</p>
+                <img src={maruLogo} alt="Maru Consultancy Services" className="h-16 w-auto object-contain mb-6 mx-auto block" />
                 <h2 className="font-bold leading-[1.2] mb-5"
                   style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.4rem, 2.4vw, 2rem)', color: '#111111' }}>
                   Expertise that protects your business &amp; empowers your
