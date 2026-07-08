@@ -505,11 +505,11 @@ const Home = () => {
             ].map(({ target, decimals, suffix, label }) => (
               <div key={label} className="text-center">
                 <p className="font-bold text-3xl mb-1"
-                  style={{ fontFamily: 'Poppins, sans-serif', color: '#fda102' }}>
+                  style={{ fontFamily: 'Poppins, sans-serif', color: '#fda102', WebkitTextFillColor: '#fda102', background: 'none' }}>
                   <StatCounter target={target} decimals={decimals} suffix={suffix} />
                 </p>
                 <p className="text-xs uppercase tracking-widest"
-                  style={{ fontFamily: 'Poppins, sans-serif', color: '#fda102' }}>{label}</p>
+                  style={{ fontFamily: 'Poppins, sans-serif', color: '#ffffff' }}>{label}</p>
               </div>
             ))}
           </motion.div>
