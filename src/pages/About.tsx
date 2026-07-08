@@ -406,9 +406,13 @@ const About = () => {
                     const imgZoneClass = down
                       ? 'order-1 items-end mb-5 sm:order-1 sm:items-end sm:mb-5'
                       : 'order-1 items-end mb-5 sm:order-3 sm:items-start sm:mt-5 sm:mb-0';
+                    // NOTE: `sm:min-h-[176px]` below must be a literal string (not built from the
+                    // `zoneH` variable) — Tailwind's compiler only picks up arbitrary-value classes
+                    // that appear verbatim in the source text, so an interpolated class here would
+                    // silently never be generated. Keep this literal in sync with `zoneH` above.
                     const textZoneClass = down
                       ? 'order-3 items-start mt-5 sm:order-3 sm:items-start sm:mt-5'
-                      : `order-3 items-start mt-5 sm:order-1 sm:items-end sm:mb-5 sm:mt-0 sm:min-h-[${zoneH}px]`;
+                      : 'order-3 items-start mt-5 sm:order-1 sm:items-end sm:mb-5 sm:mt-0 sm:min-h-[176px]';
 
                     return (
                       <motion.div key={i} className="flex flex-col items-center text-center"
