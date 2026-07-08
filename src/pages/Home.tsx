@@ -464,7 +464,7 @@ const Home = () => {
       </section>
 
       {/* ── Testimonials ──────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#a83a00' }}>
+      <section className="py-10 relative overflow-hidden" style={{ backgroundColor: '#a83a00' }}>
 
         {/* Decorative ambient glows */}
         <div className="absolute inset-0 pointer-events-none">
@@ -482,7 +482,7 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.55 }}
-            className="text-center mb-6 px-6">
+            className="text-center mb-4 px-6">
             <img src={customerReviewIcon} alt="" aria-hidden="true"
               className="mx-auto mb-4"
               style={{ width: '56px', height: '56px', filter: 'brightness(0) saturate(100%) invert(68%) sepia(86%) saturate(607%) hue-rotate(1deg) brightness(101%) contrast(106%)' }} />
@@ -496,7 +496,7 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
-            className="flex justify-center gap-8 md:gap-16 mb-14 px-6 flex-wrap">
+            className="flex justify-center gap-8 md:gap-16 mb-8 px-6 flex-wrap">
             {[
               { target: 500, decimals: 0, suffix: '+',  label: 'Clients Served' },
               { target: 4.9, decimals: 1, suffix: '★', label: 'Average Rating' },
@@ -509,7 +509,7 @@ const Home = () => {
                   <StatCounter target={target} decimals={decimals} suffix={suffix} />
                 </p>
                 <p className="text-xs uppercase tracking-widest"
-                  style={{ fontFamily: 'Poppins, sans-serif', color: '#ffffff' }}>{label}</p>
+                  style={{ fontFamily: 'Poppins, sans-serif', color: '#fda102' }}>{label}</p>
               </div>
             ))}
           </motion.div>
