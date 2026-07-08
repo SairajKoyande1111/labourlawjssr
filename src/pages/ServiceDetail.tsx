@@ -154,47 +154,49 @@ const ServiceDetail = () => {
 
       {/* ── Hero ──────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden flex items-center justify-center"
-        style={{ height: '42vh', minHeight: '200px', maxHeight: '320px' }}>
-        {/* Background image */}
-        <img
-          src={detail?.img || '/assets/service-labour.png'}
-          alt={title}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
-        />
-        {/* #a83a00 brand tint */}
-        <div className="absolute inset-0" style={{ background: 'rgba(168,58,0,0.78)' }} />
+        className="flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: '#a83a00', minHeight: '200px', maxHeight: '300px', height: '38vh' }}>
 
         {/* Centered text */}
         <motion.div
           initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+          className="text-center px-8 w-full max-w-7xl mx-auto">
+
+          {/* First header — eyebrow, one line */}
           <p
-            className="uppercase tracking-[0.3em] font-semibold mb-2"
-            style={{ fontFamily: PP, fontSize: '0.7rem', color: '#fda102' }}>
+            className="uppercase tracking-[0.3em] font-semibold mb-2 whitespace-nowrap"
+            style={{ fontFamily: PP, fontSize: '0.95rem', color: '#fda102' }}>
             {detail?.subhead || 'Our Services'}
           </p>
+
+          {/* Second header — h1, one line */}
           <h1
-            className="uppercase leading-[1.1] mb-3"
+            className="uppercase leading-none mb-3 whitespace-nowrap"
             style={{
               fontFamily: PP,
-              fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)',
+              fontSize: 'max(1.1rem, 2vw)',
               fontWeight: 700,
-              letterSpacing: '0.04em',
+              letterSpacing: '0.05em',
               color: '#ffffff',
             }}>
             {detail?.headline || title}
           </h1>
+
+          {/* Final header — intro, max 2 lines */}
           <p
-            className="leading-relaxed mx-auto"
             style={{
               fontFamily: PP,
-              fontSize: 'clamp(0.88rem, 1.4vw, 1.05rem)',
+              fontSize: 'clamp(0.88rem, 1.3vw, 1rem)',
               fontWeight: 300,
               color: 'rgba(255,255,255,0.82)',
-              maxWidth: '500px',
+              maxWidth: '680px',
+              margin: '0 auto',
+              overflow: 'hidden',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              lineHeight: '1.55',
             }}>
             {detail?.intro}
           </p>
