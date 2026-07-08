@@ -155,7 +155,7 @@ const ServiceDetail = () => {
       {/* ── Hero ──────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden flex items-center justify-center"
-        style={{ height: '50vh', minHeight: '240px', maxHeight: '380px' }}>
+        style={{ height: '42vh', minHeight: '200px', maxHeight: '320px' }}>
         {/* Background image */}
         <img
           src={detail?.img || '/assets/service-labour.png'}
@@ -163,8 +163,8 @@ const ServiceDetail = () => {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: 'center center' }}
         />
-        {/* Dark tint */}
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.54)' }} />
+        {/* #a83a00 brand tint */}
+        <div className="absolute inset-0" style={{ background: 'rgba(168,58,0,0.78)' }} />
 
         {/* Centered text */}
         <motion.div
@@ -172,12 +172,12 @@ const ServiceDetail = () => {
           transition={{ duration: 0.6 }}
           className="relative z-10 text-center px-6 max-w-3xl mx-auto">
           <p
-            className="uppercase tracking-[0.3em] font-semibold mb-3"
+            className="uppercase tracking-[0.3em] font-semibold mb-2"
             style={{ fontFamily: PP, fontSize: '0.7rem', color: '#fda102' }}>
             {detail?.subhead || 'Our Services'}
           </p>
           <h1
-            className="uppercase leading-[1.1] mb-4"
+            className="uppercase leading-[1.1] mb-3"
             style={{
               fontFamily: PP,
               fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)',
@@ -191,33 +191,16 @@ const ServiceDetail = () => {
             className="leading-relaxed mx-auto"
             style={{
               fontFamily: PP,
-              fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
+              fontSize: 'clamp(0.88rem, 1.4vw, 1.05rem)',
               fontWeight: 300,
-              color: 'rgba(255,255,255,0.80)',
-              maxWidth: '520px',
+              color: 'rgba(255,255,255,0.82)',
+              maxWidth: '500px',
             }}>
             {detail?.intro}
           </p>
         </motion.div>
       </section>
 
-      {/* ── Breadcrumb bar ────────────────────────────────── */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-3.5 flex items-center gap-3 text-sm" style={{ fontFamily: PP }}>
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-1.5 font-medium transition-colors"
-            style={{ color: '#a83a00' }}>
-            <ArrowLeft size={14} /> Back to All Services
-          </Link>
-          <span className="text-gray-300">|</span>
-          <Link to="/" className="text-gray-400 hover:text-gray-600 transition-colors font-light">Home</Link>
-          <span className="text-gray-300">›</span>
-          <Link to="/services" className="text-gray-400 hover:text-gray-600 transition-colors font-light">Services</Link>
-          <span className="text-gray-300">›</span>
-          <span style={{ color: '#fda102' }} className="font-medium">{title}</span>
-        </div>
-      </div>
 
       {/* ── Main Content ──────────────────────────────────── */}
       <section className="py-14 bg-[#f8fafb]">
@@ -372,29 +355,6 @@ const ServiceDetail = () => {
                 </ul>
               </motion.div>
 
-              {/* Quick Info */}
-              <motion.div
-                initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.35 }}
-                className="text-white p-7 rounded-2xl"
-                style={{ backgroundColor: '#a83a00' }}>
-                <p
-                  className="font-bold uppercase tracking-wider mb-3"
-                  style={{ fontFamily: PP, fontSize: '0.65rem', color: '#fda102' }}>
-                  Working Hours
-                </p>
-                <p
-                  className="text-sm mb-5 font-light leading-relaxed"
-                  style={{ fontFamily: PP, color: 'rgba(255,255,255,0.75)' }}>
-                  Mon – Fri: 9:30 AM – 6:30 PM<br />Sat & Sun: Closed
-                </p>
-                <a
-                  href="mailto:contact@labourcodes.in"
-                  className="text-sm font-semibold flex items-center gap-2 transition-opacity hover:opacity-80"
-                  style={{ fontFamily: PP, color: '#fda102' }}>
-                  <ArrowRight size={13} /> contact@labourcodes.in
-                </a>
-              </motion.div>
 
             </div>
           </div>
