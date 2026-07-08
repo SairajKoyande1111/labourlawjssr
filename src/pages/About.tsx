@@ -472,14 +472,14 @@ const About = () => {
           <motion.div className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <p className="font-bold text-sm uppercase tracking-widest mb-3"
-              style={{ fontFamily: PP, color: 'rgba(255,255,255,0.7)' }}>
-              The People Behind the Practice
-            </p>
-            <h2 className="font-bold text-white leading-[1.15]"
+            <h2 className="font-bold text-white leading-[1.15] mb-4"
               style={{ fontFamily: PP, fontSize: 'clamp(1.6rem, 2.8vw, 2.4rem)' }}>
-              Meet the Team
+              Meet the Experts Behind Your Success
             </h2>
+            <p className="text-sm max-w-2xl mx-auto"
+              style={{ fontFamily: PP, color: '#fda102' }}>
+              Our experienced team of labour law, payroll, HR, and compliance professionals is committed to delivering practical solutions that help your business stay compliant and grow with confidence.
+            </p>
           </motion.div>
 
           {/* 4-card grid — single row */}
@@ -499,7 +499,7 @@ const About = () => {
                 style={{ backgroundColor: '#ffffff' }}>
 
                 {/* Photo */}
-                <div className="relative overflow-hidden" style={{ height: '240px' }}>
+                <div className="relative overflow-hidden" style={{ height: '360px' }}>
                   <img src={m.img} alt={m.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-400"
@@ -508,7 +508,6 @@ const About = () => {
 
                 {/* Details */}
                 <div className="flex-1 flex flex-col items-center text-center px-6 py-7">
-                  <div className="w-8 h-0.5 mb-4" style={{ backgroundColor: '#fda102' }} />
                   <h4 className="font-bold text-lg mb-1" style={{ fontFamily: PP, color: '#111' }}>{m.name}</h4>
                   <p className="text-xs mb-2" style={{ fontFamily: PP, color: '#999' }}>{m.qualification}</p>
                   <p className="font-semibold text-xs uppercase tracking-wide whitespace-pre-line leading-relaxed"
