@@ -394,6 +394,15 @@ const About = () => {
          ══════════════════════════════════════════════════════ */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
+          {/* Centered top logo */}
+          <motion.div className="flex justify-center mb-12"
+            initial={{ opacity: 0, y: -16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <img src="/assets/maru-logo-full.png" alt="Maru Consultancy Services"
+              className="w-auto object-contain" style={{ height: '110px' }} />
+          </motion.div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             {/* Left: image with floating cards */}
@@ -421,16 +430,12 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.65, delay: 0.1 }}>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-8 h-0.5" style={{ backgroundColor: '#fda102' }} />
-                <p className="font-bold text-xs uppercase tracking-[0.25em]" style={{ fontFamily: PP, color: '#a83a00' }}>Why Choose Maru</p>
-              </div>
               <h2 className="font-bold leading-[1.15] mb-8"
                 style={{ fontFamily: PP, fontSize: 'clamp(1.6rem, 2.8vw, 2.6rem)', color: '#111' }}>
                 What sets us apart<br />from the <span style={{ color: '#a83a00' }}>rest.</span>
               </h2>
 
-              <div className="space-y-5 mb-10">
+              <div className="space-y-6">
                 {[
                   { point: 'Pan-India presence across 15+ states', sub: 'State-specific expertise from Kashmir to Kanyakumari, covering all major industrial hubs.' },
                   { point: 'Experts in New Labour Codes', sub: "One of India's earliest and most trusted authorities on the consolidated labour code framework." },
@@ -441,23 +446,17 @@ const About = () => {
                   <motion.div key={i} className="flex gap-4 items-start"
                     initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.07 }}>
-                    <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                    <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5"
                       style={{ backgroundColor: '#fda102' }}>
-                      <CheckCircle size={14} color="#fff" />
+                      <CheckCircle size={16} color="#fff" />
                     </div>
                     <div>
-                      <p className="font-semibold text-sm" style={{ fontFamily: PP, color: '#111' }}>{item.point}</p>
-                      <p className="text-xs leading-relaxed mt-0.5" style={{ fontFamily: PP, color: '#777' }}>{item.sub}</p>
+                      <p className="font-semibold text-base" style={{ fontFamily: PP, color: '#111' }}>{item.point}</p>
+                      <p className="text-sm leading-relaxed mt-1" style={{ fontFamily: PP, color: '#777' }}>{item.sub}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
-
-              <Link to="/contact"
-                className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 font-semibold text-sm text-white transition-all hover:scale-[1.03] shadow-lg"
-                style={{ backgroundColor: '#a83a00', fontFamily: PP }}>
-                Let's Talk Compliance <ArrowRight size={15} />
-              </Link>
             </motion.div>
           </div>
         </div>
