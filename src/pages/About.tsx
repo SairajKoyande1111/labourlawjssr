@@ -186,28 +186,13 @@ const About = () => {
               Partner.
             </motion.h1>
 
-            <motion.p className="text-sm leading-[1.85] mb-8 max-w-[340px]"
+            <motion.p className="text-base leading-[1.85] max-w-[460px]"
               style={{ fontFamily: PP, color: 'rgba(255,255,255,0.7)' }}
               initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.26 }}>
               Two decades of expertise in labour law compliance, HR governance,
               statutory filings, and workforce management across 15+ Indian states.
             </motion.p>
-
-            <motion.div className="flex flex-wrap gap-3"
-              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.34 }}>
-              <Link to="/contact"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3 font-semibold text-sm transition-all hover:scale-[1.04] hover:brightness-105"
-                style={{ backgroundColor: '#fda102', color: '#fff', fontFamily: PP }}>
-                Work With Us <ArrowRight size={14} />
-              </Link>
-              <Link to="/services"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3 font-semibold text-sm border transition-all hover:bg-white/10"
-                style={{ borderColor: 'rgba(255,255,255,0.35)', color: '#fff', fontFamily: PP }}>
-                Our Services
-              </Link>
-            </motion.div>
           </div>
 
           {/* Bottom stats strip */}
@@ -247,7 +232,7 @@ const About = () => {
       <div className="overflow-hidden py-3" style={{ backgroundColor: '#a83a00' }}>
         <div style={{ display: 'flex', width: 'max-content', animation: 'marquee 32s linear infinite' }}>
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} className="font-semibold text-sm mx-6 whitespace-nowrap"
+            <span key={i} className="font-light text-xl mx-6 whitespace-nowrap"
               style={{ fontFamily: PP, color: '#ffffff' }}>
               {item}
             </span>
