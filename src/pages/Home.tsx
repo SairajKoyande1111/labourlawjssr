@@ -306,16 +306,16 @@ const Home = () => {
       {/* ── Why Labour Law ────────────────────────────────── */}
       <section className="py-16" style={{ backgroundColor: '#f9f5f2' }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-stretch">
 
             {/* ── Left: collage (same as hero) ── */}
             <motion.div
-              className="w-full lg:w-[48%] shrink-0"
+              className="w-full lg:w-[48%] shrink-0 flex flex-col"
               initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}>
-              <div className="flex gap-3" style={{ height: '520px' }}>
+              <div className="flex gap-3 h-full">
 
                 {/* Left column: tall video */}
                 <div className="flex flex-col" style={{ width: '58%' }}>
