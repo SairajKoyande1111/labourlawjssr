@@ -482,10 +482,11 @@ const Home = () => {
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.55 }}
             className="text-center mb-6 px-6">
-            <h2 className="font-bold text-white mb-4"
+            <h2 className="font-bold text-white mb-3"
               style={{ fontFamily: 'Poppins, sans-serif', fontSize: 'clamp(1.9rem, 3.2vw, 2.8rem)' }}>
               Trusted by Industry Leaders
             </h2>
+            <div className="mx-auto mb-4" style={{ width: '64px', height: '3px', backgroundColor: '#fda102', borderRadius: '2px' }} />
             <p className="text-base max-w-xl mx-auto"
               style={{ fontFamily: 'Poppins, sans-serif', color: '#ffffff', fontWeight: 400 }}>
               Real results from real clients across India's most demanding industries.
@@ -525,9 +526,9 @@ const Home = () => {
                     width: '360px',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
                   }}>
-                  {/* Amber-to-orange top accent bar */}
+                  {/* Solid amber top accent bar */}
                   <div className="h-[4px] w-full"
-                    style={{ background: 'linear-gradient(90deg, #fda102, #a83a00)' }} />
+                    style={{ backgroundColor: '#fda102' }} />
 
                   <div className="p-7 flex flex-col flex-grow">
                     {/* Stars */}
