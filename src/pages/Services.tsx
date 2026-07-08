@@ -73,7 +73,7 @@ const Services = () => {
       </section>
 
       {/* ── Services Grid ─────────────────────────────────── */}
-      <section className="py-20 bg-[#f8fafb]">
+      <section className="pt-10 pb-16 bg-[#f8fafb]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {services.map((service, i) => (
@@ -109,20 +109,20 @@ const Services = () => {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="py-20 text-white text-center" style={{ backgroundColor: '#a83a00' }}>
-        <div className="max-w-2xl mx-auto px-6">
+      <section className="py-10 text-white text-center" style={{ backgroundColor: '#a83a00' }}>
+        <div className="max-w-4xl mx-auto px-6">
           <motion.p
             initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.4 }}
-            className="font-semibold text-[11px] uppercase tracking-[0.24em] mb-4" style={{ fontFamily: PP, color: '#fda102' }}>Get Started</motion.p>
+            className="font-bold text-sm uppercase tracking-[0.28em] mb-3" style={{ fontFamily: PP, color: '#fda102' }}>Get Started</motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.07 }}
-            className="font-light mb-5" style={{ fontFamily: PP, fontSize: 'clamp(1.9rem, 3vw, 2.6rem)' }}>Need a custom compliance structure?</motion.h2>
+            className="font-bold whitespace-nowrap mb-4" style={{ fontFamily: PP, fontSize: 'clamp(1.6rem, 3.2vw, 2.8rem)' }}>Need a custom compliance structure?</motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.14 }}
-            className="text-white/70 mb-10 font-light text-base leading-relaxed" style={{ fontFamily: PP }}>We understand every business has unique operational needs. Contact us for a bespoke audit and advisory package tailored to your industry.</motion.p>
+            className="text-white/80 mb-8 font-light leading-relaxed" style={{ fontFamily: PP, fontSize: 'clamp(1rem, 1.6vw, 1.2rem)' }}>We understand every business has unique operational needs. Contact us for a bespoke audit and advisory package tailored to your industry.</motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.2 }}>
