@@ -1,179 +1,227 @@
 import { useState } from 'react';
-import { MapPin, Briefcase, Clock, ChevronRight, ArrowRight, Users, TrendingUp, Award } from 'lucide-react';
+import { MapPin, Briefcase, Clock, ArrowRight, Users, TrendingUp, Award, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { jobs } from '../data/careersData';
+
+const PP = 'Poppins, sans-serif';
+
+const perks = [
+  {
+    icon: TrendingUp,
+    title: 'Career Growth',
+    desc: 'Clear progression paths with structured learning and mentorship from India\'s top labour law practitioners.',
+  },
+  {
+    icon: Award,
+    title: 'Expert Recognition',
+    desc: 'Work on landmark compliance cases. Your expertise becomes our collective strength.',
+  },
+  {
+    icon: Users,
+    title: 'Collaborative Culture',
+    desc: 'A tight-knit team of legal minds, payroll specialists, and HR professionals who learn from each other.',
+  },
+];
 
 const Careers = () => {
   const [activeTab, setActiveTab] = useState<'internal' | 'client'>('internal');
 
-  const internalJobs = [
-    { title: "Senior Labour Law Consultant", loc: "Mumbai", type: "Full-time", dept: "Legal Advisory", exp: "5–8 years" },
-    { title: "Payroll Compliance Manager", loc: "Delhi NCR", type: "Full-time", dept: "Operations", exp: "4–6 years" },
-    { title: "Statutory Audit Specialist", loc: "Bangalore", type: "Full-time", dept: "Audits", exp: "3–5 years" },
-    { title: "HR Business Partner", loc: "Pune", type: "Full-time", dept: "Internal HR", exp: "4–7 years" },
-  ];
-
-  const clientJobs = [
-    { title: "Plant HR Head", loc: "Ahmedabad", type: "Full-time", dept: "Manufacturing", exp: "8–12 years" },
-    { title: "Compliance Executive", loc: "Chennai", type: "Contract", dept: "IT Services", exp: "2–4 years" },
-    { title: "IR Manager (Industrial Relations)", loc: "Gurgaon", type: "Full-time", dept: "Automotive", exp: "6–10 years" },
-    { title: "Welfare Officer", loc: "Hyderabad", type: "Full-time", dept: "Textiles", exp: "3–5 years" },
-    { title: "Recruitment Specialist", loc: "Mumbai", type: "Contract", dept: "Retail", exp: "2–4 years" },
-  ];
-
-  const perks = [
-    { icon: TrendingUp, title: "Career Growth", desc: "Clear progression paths with structured learning and mentorship from India's top labour law practitioners." },
-    { icon: Award, title: "Expert Recognition", desc: "Work on landmark compliance cases. Your expertise becomes our collective strength." },
-    { icon: Users, title: "Collaborative Culture", desc: "A tight-knit team of legal minds, payroll specialists, and HR professionals who learn from each other." },
-  ];
-
-  const JobCard = ({ job, isInternal }: { job: any; isInternal: boolean }) => (
-    <div className="p-6 md:p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row justify-between items-start md:items-center gap-5">
-      <div className="flex-1">
-        <h3 className="text-base font-bold text-navy-900 mb-3">{job.title}</h3>
-        <div className="flex flex-wrap gap-3 text-sm font-medium text-gray-400">
-          <span className="flex items-center gap-1.5"><MapPin size={13} className="text-teal-500" /> {job.loc}</span>
-          <span className="flex items-center gap-1.5"><Clock size={13} className="text-teal-500" /> {job.type}</span>
-          <span className="flex items-center gap-1.5"><Briefcase size={13} className="text-teal-500" /> {job.dept}</span>
-          <span className="flex items-center gap-1.5 bg-gray-50 px-2.5 py-0.5 rounded-full text-xs">{job.exp} exp</span>
-        </div>
-      </div>
-      <Link to="/contact"
-        className={`shrink-0 px-7 py-3 rounded-full font-bold text-sm transition-all flex items-center gap-2 whitespace-nowrap hover:scale-[1.02] shadow-sm ${
-          isInternal
-            ? 'bg-teal-500 text-white hover:bg-teal-600 shadow-teal-500/20'
-            : 'bg-navy-900 text-white hover:bg-navy-800'
-        }`}>
-        Apply Now <ChevronRight size={15} />
-      </Link>
-    </div>
-  );
+  const internalJobs = jobs.filter(j => j.category === 'internal');
+  const clientJobs = jobs.filter(j => j.category === 'client');
+  const displayed = activeTab === 'internal' ? internalJobs : clientJobs;
 
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ fontFamily: PP }}>
 
-      {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ minHeight: '420px' }}>
-        <img src="/assets/service-hr.png" alt="Careers at Labour Law"
-          className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/85 via-navy-900/65 to-navy-900/25" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center py-20" style={{ minHeight: '420px' }}>
-          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.55 }}
-            className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl max-w-md">
-            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Join Our Team</p>
-            <h1 className="text-2xl md:text-3xl font-display font-bold text-navy-900 mb-4 leading-snug">
-              Find your place at the table
-            </h1>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">
-              Channel your passion for labour and industrial law into a meaningful career at India's premier compliance advisory firm.
-            </p>
-            <nav className="flex items-center gap-2 text-xs font-semibold">
-              <Link to="/" className="bg-navy-900 text-white px-3 py-1.5 rounded-lg hover:bg-teal-600 transition-colors">Home</Link>
-              <span className="text-gray-300">›</span>
-              <span className="text-teal-600">Careers</span>
-            </nav>
-          </motion.div>
-        </div>
+      {/* ── Hero ── */}
+      <section
+        className="relative flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: '#a83a00', minHeight: '280px' }}>
+
+        <div className="absolute top-[-60px] right-[-60px] w-[320px] h-[320px] rounded-full opacity-10"
+          style={{ backgroundColor: '#fda102' }} />
+        <div className="absolute bottom-[-50px] left-[-30px] w-[200px] h-[200px] rounded-full opacity-[0.07]"
+          style={{ backgroundColor: '#fff' }} />
+
+        <motion.div
+          initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 text-center px-8 w-full max-w-4xl mx-auto py-16">
+
+          <p className="uppercase tracking-[0.3em] font-semibold mb-3"
+            style={{ fontFamily: PP, fontSize: '0.85rem', color: '#fda102' }}>
+            Join Our Team
+          </p>
+          <h1 className="font-bold mb-4 leading-tight"
+            style={{ fontFamily: PP, fontSize: 'clamp(2rem, 4vw, 3.2rem)', color: '#fff' }}>
+            Build a Career That Matters
+          </h1>
+          <p style={{
+            fontFamily: PP, fontSize: 'clamp(0.95rem, 1.4vw, 1.1rem)',
+            color: 'rgba(255,255,255,0.80)', maxWidth: '580px', margin: '0 auto', lineHeight: 1.7,
+          }}>
+            Channel your passion for labour and industrial law into a meaningful career at India's premier compliance advisory firm.
+          </p>
+        </motion.div>
       </section>
 
-      {/* ── Why Work With Us ──────────────────────────────── */}
-      <section className="py-16 bg-white">
+      {/* ── Why Work With Us ── */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-12">
-            <p className="text-teal-500 font-bold text-[11px] uppercase tracking-[0.18em] mb-3">Why Labour Law</p>
-            <h2 className="text-3xl font-display font-bold text-navy-900 mb-3">Build a Career That Matters</h2>
-            <p className="text-gray-500 text-sm max-w-xl mx-auto">Every role here creates real impact — keeping Indian businesses compliant and workers protected.</p>
+          <div className="text-center mb-14">
+            <p className="font-bold tracking-[0.2em] uppercase text-xs mb-3"
+              style={{ fontFamily: PP, color: '#a83a00' }}>Why Labour Law</p>
+            <h2 className="font-bold mb-4"
+              style={{ fontFamily: PP, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#111' }}>
+              Why Work With Us
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto leading-relaxed"
+              style={{ fontFamily: PP, fontSize: '1rem' }}>
+              Every role here creates real impact — keeping Indian businesses compliant and workers protected.
+            </p>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             {perks.map((perk, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="bg-[#f8fafb] border border-gray-100 rounded-2xl p-7 text-center">
-                <div className="w-12 h-12 mx-auto bg-teal-50 text-teal-500 rounded-xl flex items-center justify-center mb-5 shadow-sm">
-                  <perk.icon size={22} />
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.45 }}
+                className="rounded-2xl p-8 border border-gray-100 text-center group hover:shadow-lg transition-shadow"
+                style={{ backgroundColor: '#fdf7f0' }}>
+                <div className="w-14 h-14 mx-auto rounded-2xl flex items-center justify-center mb-5 shadow-sm"
+                  style={{ backgroundColor: 'rgba(168,58,0,0.1)' }}>
+                  <perk.icon size={24} style={{ color: '#a83a00' }} />
                 </div>
-                <h3 className="font-display font-bold text-navy-900 text-base mb-3">{perk.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{perk.desc}</p>
+                <h3 className="font-bold mb-3"
+                  style={{ fontFamily: PP, fontSize: '1.1rem', color: '#111' }}>{perk.title}</h3>
+                <p className="text-gray-500 leading-relaxed"
+                  style={{ fontFamily: PP, fontSize: '0.93rem' }}>{perk.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Job Listings ──────────────────────────────────── */}
-      <section className="py-20 bg-[#f8fafb]">
+      {/* ── Job Listings ── */}
+      <section className="py-20" style={{ backgroundColor: '#f8fafb' }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
-          {/* Tabs */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="flex gap-3 mb-12 border-b border-gray-200">
-            <button
-              onClick={() => setActiveTab('internal')}
-              className={`pb-4 px-2 font-bold text-sm border-b-2 transition-all -mb-px ${
-                activeTab === 'internal'
-                  ? 'border-teal-500 text-teal-600'
-                  : 'border-transparent text-gray-400 hover:text-gray-600'
-              }`}>
-              Opportunities at Labour Law ({internalJobs.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('client')}
-              className={`pb-4 px-2 font-bold text-sm border-b-2 transition-all -mb-px ${
-                activeTab === 'client'
-                  ? 'border-teal-500 text-teal-600'
-                  : 'border-transparent text-gray-400 hover:text-gray-600'
-              }`}>
-              Client Job Postings ({clientJobs.length})
-            </button>
-          </motion.div>
+          <div className="mb-10">
+            <p className="font-bold tracking-[0.2em] uppercase text-xs mb-3"
+              style={{ fontFamily: PP, color: '#a83a00' }}>Open Positions</p>
+            <h2 className="font-bold"
+              style={{ fontFamily: PP, fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', color: '#111' }}>
+              Current Openings
+            </h2>
+          </div>
 
-          {activeTab === 'internal' && (
-            <div>
-              <div className="mb-8">
-                <h2 className="text-2xl font-display font-bold text-navy-900 mb-2">Opportunities at Labour Law</h2>
-                <p className="text-gray-500 text-sm">Build your career at one of India's most respected HR compliance advisory firms.</p>
-              </div>
-              <div className="space-y-4">
-                {internalJobs.map((job, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.07 }}>
-                    <JobCard job={job} isInternal={true} />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Tabs */}
+          <div className="flex gap-1 p-1 rounded-xl mb-10 w-fit"
+            style={{ backgroundColor: 'rgba(168,58,0,0.08)' }}>
+            {[
+              { key: 'internal', label: `At Maru Consultancy (${internalJobs.length})` },
+              { key: 'client', label: `Client Postings (${clientJobs.length})` },
+            ].map(tab => (
+              <button key={tab.key}
+                onClick={() => setActiveTab(tab.key as 'internal' | 'client')}
+                className="px-5 py-2.5 rounded-lg font-semibold text-sm transition-all"
+                style={{
+                  fontFamily: PP,
+                  backgroundColor: activeTab === tab.key ? '#a83a00' : 'transparent',
+                  color: activeTab === tab.key ? '#fff' : '#a83a00',
+                }}>
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
           {activeTab === 'client' && (
-            <div>
-              <div className="mb-8">
-                <h2 className="text-2xl font-display font-bold text-navy-900 mb-2">Client Job Postings</h2>
-                <p className="text-gray-500 text-sm">Exclusive HR & compliance roles sourced directly from our corporate client network across India.</p>
-              </div>
-              <div className="space-y-4">
-                {clientJobs.map((job, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.07 }}>
-                    <JobCard job={job} isInternal={false} />
-                  </motion.div>
-                ))}
-              </div>
+            <div className="mb-8 p-4 rounded-xl border flex items-start gap-3"
+              style={{ backgroundColor: 'rgba(253,161,2,0.08)', borderColor: 'rgba(253,161,2,0.3)' }}>
+              <span style={{ color: '#fda102', fontSize: '1.1rem' }}>ℹ</span>
+              <p style={{ fontFamily: PP, fontSize: '0.88rem', color: '#555' }}>
+                These are exclusive HR & compliance roles sourced directly from our corporate client network across India. Applications are managed through Maru Consultancy Services.
+              </p>
             </div>
           )}
 
+          <div className="space-y-5">
+            {displayed.map((job, i) => (
+              <motion.div key={job.slug}
+                initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.07, duration: 0.4 }}
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all p-7 md:p-8">
+
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
+                  <div className="flex-1">
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                        style={{
+                          backgroundColor: job.category === 'internal' ? 'rgba(168,58,0,0.1)' : 'rgba(253,161,2,0.12)',
+                          color: job.category === 'internal' ? '#a83a00' : '#c07a00',
+                          fontFamily: PP,
+                        }}>
+                        {job.category === 'internal' ? 'In-house' : 'Client Role'}
+                      </span>
+                      <span className="text-xs text-gray-400 font-medium" style={{ fontFamily: PP }}>
+                        {job.department}
+                      </span>
+                    </div>
+
+                    <h3 className="font-bold mb-3"
+                      style={{ fontFamily: PP, fontSize: '1.15rem', color: '#111' }}>
+                      {job.title}
+                    </h3>
+
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-500">
+                      <span className="flex items-center gap-1.5">
+                        <MapPin size={13} style={{ color: '#a83a00' }} /> {job.location}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Clock size={13} style={{ color: '#a83a00' }} /> {job.type}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Briefcase size={13} style={{ color: '#a83a00' }} /> {job.experience} exp
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                    <Link to={`/careers/${job.slug}`}
+                      className="px-6 py-3 rounded-xl font-semibold text-sm border-2 flex items-center justify-center gap-2 transition-all hover:opacity-80"
+                      style={{ fontFamily: PP, color: '#a83a00', borderColor: '#a83a00', backgroundColor: 'transparent' }}>
+                      View JD <ChevronRight size={15} />
+                    </Link>
+                    <Link to={`/careers/${job.slug}#apply`}
+                      className="px-6 py-3 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:opacity-90 shadow-sm"
+                      style={{ fontFamily: PP, backgroundColor: '#a83a00', color: '#fff' }}>
+                      Apply Now <ArrowRight size={15} />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Open Application CTA */}
           <motion.div
             initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.5 }}
-            className="mt-12 bg-navy-900 text-white rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            className="mt-14 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
+            style={{ backgroundColor: '#a83a00' }}>
             <div>
-              <h3 className="text-xl font-display font-bold mb-2">Don't see a role that fits?</h3>
-              <p className="text-white/55 text-sm">Send us your resume. We're always open to exceptional talent in labour law and HR compliance.</p>
+              <h3 className="font-bold text-white mb-2"
+                style={{ fontFamily: PP, fontSize: '1.4rem' }}>
+                Don't see a role that fits?
+              </h3>
+              <p style={{ fontFamily: PP, fontSize: '0.95rem', color: 'rgba(255,255,255,0.70)' }}>
+                Send us your profile. We're always open to exceptional talent in labour law and HR compliance.
+              </p>
             </div>
             <Link to="/contact"
-              className="shrink-0 inline-flex items-center gap-2 bg-teal-500 text-white px-8 py-3.5 rounded-full font-bold text-sm hover:bg-teal-600 transition-colors shadow-lg whitespace-nowrap">
+              className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm transition-all hover:opacity-90 whitespace-nowrap shadow-lg"
+              style={{ fontFamily: PP, backgroundColor: '#fda102', color: '#111' }}>
               Send Your Resume <ArrowRight size={16} />
             </Link>
           </motion.div>

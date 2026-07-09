@@ -7,6 +7,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import Resources from './pages/Resources';
 import Clientele from './pages/Clientele';
 import Careers from './pages/Careers';
+import CareerDetail from './pages/CareerDetail';
 import Contact from './pages/Contact';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="resources" element={<Resources />} />
         <Route path="clientele" element={<Clientele />} />
         <Route path="careers" element={<Careers />} />
+        <Route path="careers/:slug" element={<CareerDetail />} />
         <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>
