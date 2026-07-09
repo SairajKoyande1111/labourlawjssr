@@ -217,35 +217,28 @@ const ServiceDetail = () => {
 
       {/* ── Hero ── */}
       <section
-        className="relative flex items-end overflow-hidden"
-        style={{ backgroundColor: '#a83a00', minHeight: '360px' }}>
-
-        {/* Decorative circles */}
-        <div className="absolute top-[-80px] right-[-80px] w-[380px] h-[380px] rounded-full opacity-10"
-          style={{ backgroundColor: '#fda102' }} />
-        <div className="absolute bottom-[-60px] left-[-40px] w-[220px] h-[220px] rounded-full opacity-[0.07]"
-          style={{ backgroundColor: '#fff' }} />
+        className="flex items-center justify-center overflow-hidden"
+        style={{ backgroundColor: '#a83a00', minHeight: '200px', maxHeight: '300px', height: '38vh' }}>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pb-12 pt-16">
+          initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center px-8 w-full max-w-7xl mx-auto">
 
           <p
-            className="uppercase tracking-[0.3em] font-semibold mb-4"
-            style={{ fontFamily: PP, fontSize: '0.85rem', color: '#fda102', letterSpacing: '0.25em' }}>
+            className="uppercase tracking-[0.3em] font-semibold mb-2 whitespace-nowrap"
+            style={{ fontFamily: PP, fontSize: '0.95rem', color: '#fda102' }}>
             {detail?.subhead || 'Our Services'}
           </p>
 
           <h1
-            className="font-bold leading-tight mb-5"
+            className="uppercase leading-none mb-3 whitespace-nowrap"
             style={{
               fontFamily: PP,
-              fontSize: 'clamp(2rem, 4.5vw, 3.6rem)',
-              fontWeight: 800,
+              fontSize: 'max(1.1rem, 2vw)',
+              fontWeight: 700,
+              letterSpacing: '0.05em',
               color: '#ffffff',
-              maxWidth: '820px',
-              lineHeight: 1.15,
             }}>
             {detail?.headline || title}
           </h1>
@@ -253,39 +246,34 @@ const ServiceDetail = () => {
           <p
             style={{
               fontFamily: PP,
-              fontSize: 'clamp(1rem, 1.6vw, 1.2rem)',
+              fontSize: 'clamp(0.88rem, 1.3vw, 1rem)',
               fontWeight: 300,
-              color: 'rgba(255,255,255,0.80)',
-              maxWidth: '620px',
-              lineHeight: 1.65,
+              color: 'rgba(255,255,255,0.82)',
+              maxWidth: '680px',
+              margin: '0 auto',
+              overflow: 'hidden',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              lineHeight: '1.55',
             }}>
             {detail?.intro}
           </p>
         </motion.div>
       </section>
 
-      {/* ── Big Image Banner ── */}
+      {/* ── Big Image Banner — true full-width ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="w-full max-w-7xl mx-auto px-6 lg:px-10"
-        style={{ marginTop: '-2px' }}>
-        <div
-          className="w-full overflow-hidden shadow-2xl"
-          style={{ borderRadius: '0 0 24px 24px', height: 'clamp(240px, 38vw, 500px)' }}>
-          <img
-            src={detail?.img || '/assets/service-labour.png'}
-            alt={title}
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 30%' }}
-          />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.18) 100%)',
-            }}
-          />
-        </div>
+        className="w-full overflow-hidden"
+        style={{ height: 'clamp(240px, 38vw, 500px)' }}>
+        <img
+          src={detail?.img || '/assets/service-labour.png'}
+          alt={title}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 30%' }}
+        />
       </motion.div>
 
       {/* ── Main Content ── */}
