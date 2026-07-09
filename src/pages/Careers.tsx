@@ -38,16 +38,24 @@ const Careers = () => {
           style={{ zIndex: 2 }}>
 
           <p className="uppercase tracking-[0.3em] font-semibold mb-3"
-            style={{ fontFamily: PP, fontSize: '0.85rem', color: '#fda102' }}>
+            style={{ fontFamily: PP, fontSize: '1.05rem', color: '#fda102' }}>
             Join Our Team
           </p>
-          <h1 className="font-bold mb-4 leading-tight"
-            style={{ fontFamily: PP, fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', color: '#fff' }}>
+          <h1 className="font-bold mb-5 leading-none whitespace-nowrap"
+            style={{ fontFamily: PP, fontSize: 'clamp(1.8rem, 4.2vw, 3.8rem)', color: '#fff' }}>
             Build a Career That Matters
           </h1>
           <p style={{
-            fontFamily: PP, fontSize: 'clamp(1rem, 1.6vw, 1.2rem)',
-            color: 'rgba(255,255,255,0.82)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.7,
+            fontFamily: PP,
+            fontSize: 'clamp(1.05rem, 1.5vw, 1.25rem)',
+            color: 'rgba(255,255,255,0.82)',
+            maxWidth: '640px',
+            margin: '0 auto',
+            lineHeight: 1.7,
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
           }}>
             Channel your passion for labour and industrial law into a meaningful career at India's premier compliance advisory firm.
           </p>
