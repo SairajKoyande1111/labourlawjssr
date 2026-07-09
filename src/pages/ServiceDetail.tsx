@@ -299,7 +299,7 @@ const ServiceDetail = () => {
                   initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
                   className="text-gray-600 leading-relaxed mb-4"
-                  style={{ fontFamily: PP, fontSize: 'clamp(0.97rem, 1.3vw, 1.08rem)', fontWeight: 400, lineHeight: 1.8 }}>
+                  style={{ fontFamily: PP, fontSize: 'clamp(0.97rem, 1.3vw, 1.08rem)', fontWeight: 400, lineHeight: 1.8, textAlign: 'justify' }}>
                   {para}
                 </motion.p>
               ))}
@@ -452,6 +452,59 @@ const ServiceDetail = () => {
               </motion.div>
 
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Latest Insights ── */}
+      <section className="py-20 bg-[#f8fafb]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <p className="font-bold tracking-[0.18em] uppercase text-xs mb-2"
+                style={{ fontFamily: PP, color: '#a83a00' }}>Latest Insights</p>
+              <h2 className="text-3xl md:text-4xl font-bold"
+                style={{ fontFamily: PP, color: '#111' }}>Stay informed with expert guidance</h2>
+            </div>
+            <Link to="/resources"
+              className="hidden md:flex items-center gap-2 font-semibold text-sm transition-colors border-b pb-0.5 hover:opacity-70"
+              style={{ fontFamily: PP, color: '#111', borderColor: '#111' }}>
+              View All <ArrowRight size={15} />
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {[
+              { category: 'New Labour Codes', title: 'Understanding the New Wage Code', desc: 'A comprehensive guide to how the new definitions of wages impact your salary structure and PF contributions.', img: '/assets/service-payroll.png', date: 'Oct 15, 2024' },
+              { category: 'Compliance', title: 'Navigating State-Specific Leave Policies', desc: 'Analyzing the variations in sick, casual, and earned leaves across different Indian states.', img: '/assets/service-hr.png', date: 'Oct 02, 2024' },
+              { category: 'Labour Audit', title: 'Preparing for Labour Inspections', desc: 'Key documents and statutory registers you must have updated before an unexpected factory inspection.', img: '/assets/service-audits.png', date: 'Sep 28, 2024' },
+            ].map((post, i) => (
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.1 }}
+                className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col group">
+                <div className="relative overflow-hidden h-48">
+                  <img src={post.img} alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider"
+                    style={{ backgroundColor: '#a83a00' }}>
+                    {post.category}
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <p className="text-[11px] font-semibold mb-2 uppercase tracking-wider"
+                    style={{ color: '#a83a00', fontFamily: PP }}>{post.date}</p>
+                  <h3 className="text-base font-bold mb-3 line-clamp-2"
+                    style={{ fontFamily: PP, color: '#111' }}>{post.title}</h3>
+                  <p className="text-gray-500 text-sm mb-5 flex-grow leading-relaxed"
+                    style={{ fontFamily: PP }}>{post.desc}</p>
+                  <Link to="/resources"
+                    className="font-bold text-sm flex items-center gap-1.5 transition-colors mt-auto hover:opacity-70"
+                    style={{ color: '#a83a00', fontFamily: PP }}>
+                    Read Article <ChevronRight size={14} />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
