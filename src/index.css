@@ -67,9 +67,26 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #1f2937;
   background-color: #ffffff;
+  font-size: 1.06rem;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, li, label, button, input, textarea, select {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Slimmer, taller type feel for headings: trade heavy bold for a medium
+   weight with a touch of letter-spacing, without flattening contrast on
+   buttons, badges and other small UI text that also uses these classes. */
+h1.font-bold, h2.font-bold, h3.font-bold,
+h1.font-semibold, h2.font-semibold, h3.font-semibold {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+h1, h2, h3 {
+  line-height: 1.2;
 }
 
 #root {

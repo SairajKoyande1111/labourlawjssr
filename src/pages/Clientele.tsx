@@ -1,10 +1,18 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Factory, Landmark, Monitor, ShoppingBag, HeartPulse, Building2, Truck, Layers } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { ALL_CLIENTS, HdfcLogo, TataLogo, RelianceLogo, InfosysLogo, WiproLogo, MahindraLogo, LandTLogo, ItcLogo, GodrejLogo, BajajLogo } from '../components/ClientLogos';
 import { useInView } from 'framer-motion';
 import customerReviewIcon from '@assets/customer-review_1783487769231.png';
+import manufacturingImg from '../assets/sectors/manufacturing.jpg';
+import bankingImg from '../assets/sectors/banking.jpg';
+import itImg from '../assets/sectors/it.jpg';
+import retailImg from '../assets/sectors/retail.jpg';
+import healthcareImg from '../assets/sectors/healthcare.jpg';
+import hospitalityImg from '../assets/sectors/hospitality.jpg';
+import logisticsImg from '../assets/sectors/logistics.jpg';
+import othersImg from '../assets/sectors/others.jpg';
 
 const PP = 'Poppins, sans-serif';
 
@@ -29,74 +37,18 @@ function StatCounter({ target, decimals = 0, suffix = '' }: { target: number; de
 
 /* ── Industries data ── */
 const INDUSTRIES = [
-  {
-    icon: Factory,
-    name: 'Manufacturing',
-    count: '120+',
-    color: '#a83a00',
-    desc: 'Factories Act compliance, CLRA registrations, contract labour management, and welfare officer appointments across automotive, textile, and heavy engineering sectors.',
-    tags: ['Factories Act', 'CLRA', 'Welfare', 'Safety'],
-  },
-  {
-    icon: Landmark,
-    name: 'Banking & Finance',
-    count: '85+',
-    color: '#a83a00',
-    desc: 'Shops & Establishments compliance, ESI/PF management, POSH policies, and multi-state HR policy frameworks for banks, NBFCs, and insurance companies.',
-    tags: ['Shops Act', 'POSH', 'ESI & PF', 'HR Policy'],
-  },
-  {
-    icon: Monitor,
-    name: 'Information Technology',
-    count: '95+',
-    color: '#a83a00',
-    desc: 'Flexible workforce compliance, moonlighting policies, POSH training, and gig worker regulations for IT services, SaaS platforms, and tech startups.',
-    tags: ['Gig Workforce', 'POSH', 'New Codes', 'Policies'],
-  },
-  {
-    icon: ShoppingBag,
-    name: 'Retail & FMCG',
-    count: '70+',
-    color: '#a83a00',
-    desc: 'Multi-state Shops Act registrations, seasonal staffing compliance, minimum wages monitoring, and contract labour management for retail chains and FMCG distributors.',
-    tags: ['Shops Act', 'Minimum Wages', 'Contract Labour', 'Staffing'],
-  },
-  {
-    icon: HeartPulse,
-    name: 'Healthcare & Pharma',
-    count: '55+',
-    color: '#a83a00',
-    desc: 'Compliance frameworks for hospitals, clinics, and pharma plants covering duty rosters, overtime regulations, factory licences, and drug establishment rules.',
-    tags: ['Factory Licence', 'OT Rules', 'ESI', 'Audit'],
-  },
-  {
-    icon: Building2,
-    name: 'Hospitality',
-    count: '45+',
-    color: '#a83a00',
-    desc: 'Hotels & restaurant compliance including contract staff management, gratuity fund administration, tip policies, and state-specific Shops Act requirements.',
-    tags: ['Gratuity', 'Contract Staff', 'Shops Act', 'Licensing'],
-  },
-  {
-    icon: Truck,
-    name: 'Logistics & Infrastructure',
-    count: '60+',
-    color: '#a83a00',
-    desc: 'Pan-India compliance for logistics companies and infrastructure firms — interstate worker regulations, construction worker welfare boards, and labour cess.',
-    tags: ['BOCW', 'Labour Cess', 'ESI & PF', 'Pan-India'],
-  },
-  {
-    icon: Layers,
-    name: 'Others',
-    count: '70+',
-    color: '#a83a00',
-    desc: 'Diverse sectors including education, NGOs, media, and professional services — all supported with tailored labour law advisory and compliance management.',
-    tags: ['Advisory', 'Audits', 'Training', 'Policy'],
-  },
+  { image: manufacturingImg, name: 'Manufacturing', count: '120+' },
+  { image: bankingImg, name: 'Banking & Finance', count: '85+' },
+  { image: itImg, name: 'Information Technology', count: '95+' },
+  { image: retailImg, name: 'Retail & FMCG', count: '70+' },
+  { image: healthcareImg, name: 'Healthcare & Pharma', count: '55+' },
+  { image: hospitalityImg, name: 'Hospitality', count: '45+' },
+  { image: logisticsImg, name: 'Logistics & Infrastructure', count: '60+' },
+  { image: othersImg, name: 'Others', count: '70+' },
 ];
 
 /* ── Sector-wise clients ── */
-const SECTOR_CLIENTS: Record<string, { name: string; Logo: () => JSX.Element }[]> = {
+const SECTOR_CLIENTS: Record<string, { name: string; Logo: () => React.JSX.Element }[]> = {
   'Manufacturing & Conglomerates': [
     { name: 'Tata', Logo: TataLogo },
     { name: 'Mahindra', Logo: MahindraLogo },
@@ -204,29 +156,19 @@ const Clientele = () => {
               <motion.div key={i}
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} transition={{ delay: i * 0.07, duration: 0.45 }}
-                className="bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[rgba(168,58,0,0.2)] transition-all group">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center"
-                    style={{ backgroundColor: 'rgba(168,58,0,0.08)' }}>
-                    <ind.icon size={22} style={{ color: '#a83a00' }} />
-                  </div>
-                  <span className="font-bold text-2xl" style={{ fontFamily: PP, color: '#a83a00' }}>
+                className="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg hover:border-[rgba(168,58,0,0.2)] transition-all group">
+                <div className="relative w-full aspect-[4/3] overflow-hidden">
+                  <img src={ind.image} alt={ind.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <span className="absolute top-3 right-3 font-medium text-sm px-3 py-1 rounded-full"
+                    style={{ fontFamily: PP, backgroundColor: 'rgba(255,255,255,0.92)', color: '#a83a00' }}>
                     {ind.count}
                   </span>
                 </div>
-                <h3 className="font-bold mb-2" style={{ fontFamily: PP, fontSize: '1.05rem', color: '#111' }}>
-                  {ind.name}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-5" style={{ fontFamily: PP }}>
-                  {ind.desc}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {ind.tags.map(tag => (
-                    <span key={tag} className="text-xs font-semibold px-2.5 py-1 rounded-full"
-                      style={{ fontFamily: PP, backgroundColor: 'rgba(168,58,0,0.07)', color: '#a83a00' }}>
-                      {tag}
-                    </span>
-                  ))}
+                <div className="px-5 py-4 text-center">
+                  <h3 className="font-medium" style={{ fontFamily: PP, fontSize: '1.15rem', fontWeight: 500, color: '#111' }}>
+                    {ind.name}
+                  </h3>
                 </div>
               </motion.div>
             ))}
